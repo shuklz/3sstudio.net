@@ -720,17 +720,15 @@ body {
     border-top: 1px solid var(--border);
 }
 
-.about-grid {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 80px;
-    align-items: center;
+.about-intro {
+    max-width: 720px;
+    margin-bottom: 64px;
 }
 
 .about-title {
     font-family: var(--font-display);
-    font-size: clamp(36px, 4.5vw, 56px);
-    line-height: 1.1;
+    font-size: clamp(40px, 5vw, 64px);
+    line-height: 1.05;
     letter-spacing: -0.02em;
     font-weight: 400;
     margin-bottom: 24px;
@@ -748,30 +746,59 @@ body {
     max-width: 540px;
 }
 
-.about-stats {
-    display: flex;
-    flex-direction: column;
+.about-roles-label {
+    color: var(--text-muted);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+}
+
+.about-roles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 32px;
 }
 
-.stat {
+.role-card {
     display: flex;
-    flex-direction: column;
-    gap: 4px;
-    padding-left: 24px;
-    border-left: 2px solid var(--accent);
+    gap: 16px;
+    align-items: flex-start;
 }
 
-.stat-number {
-    font-family: var(--font-display);
-    font-size: 56px;
-    line-height: 1;
+.role-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.role-icon--blue   { background: #3b82f6; }
+.role-icon--green  { background: #22c55e; }
+.role-icon--orange { background: #f59e0b; }
+
+.role-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.role-title {
+    font-size: 17px;
+    font-weight: 600;
     color: var(--text);
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
 }
 
-.stat-label {
+.role-desc {
     color: var(--text-muted);
-    font-size: 14px;
+    font-size: 15px;
+    line-height: 1.55;
 }
 
 /* ====== Contact section ====== */
@@ -874,10 +901,12 @@ body {
         gap: 8px;
     }
 
-    .about-grid {
+    .about-roles {
         grid-template-columns: 1fr;
-        gap: 48px;
+        gap: 24px;
     }
+
+    .about-intro { margin-bottom: 48px; }
 
     .contact-email { font-size: 22px; }
 
