@@ -501,6 +501,29 @@ body {
     flex-wrap: wrap;
 }
 
+/* Mac apps: landscape screenshots, hero + two supporting */
+.app-card--mac .app-screenshots {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "hero hero"
+        "a    b";
+    gap: 14px;
+}
+
+.app-card--mac .screenshot {
+    aspect-ratio: 16 / 10;
+    border-radius: 12px;
+}
+
+.app-card--mac .screenshot:nth-child(1) { grid-area: hero; }
+.app-card--mac .screenshot:nth-child(2) { grid-area: a; }
+.app-card--mac .screenshot:nth-child(3) { grid-area: b; }
+
+.app-card--mac .screenshot img {
+    object-fit: contain;
+    background: #0a0a0c;
+}
+
 /* ====== About section ====== */
 .about-section {
     padding: 100px 0;
@@ -655,6 +678,14 @@ body {
     .app-screenshots {
         grid-template-columns: repeat(3, 1fr);
         gap: 8px;
+    }
+
+    .app-card--mac .app-screenshots {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "hero"
+            "a"
+            "b";
     }
 
     .about-grid {
