@@ -572,17 +572,33 @@ body {
 }
 
 .gallery-thumbs {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+    --thumb-gap: 12px;
+    display: flex;
+    gap: var(--thumb-gap);
     max-width: var(--gallery-max-width);
     margin: 0 auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 8px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-strong) transparent;
 }
+
+.gallery-thumbs::-webkit-scrollbar { height: 6px; }
+.gallery-thumbs::-webkit-scrollbar-track { background: transparent; }
+.gallery-thumbs::-webkit-scrollbar-thumb {
+    background: var(--border-strong);
+    border-radius: 999px;
+}
+.gallery-thumbs::-webkit-scrollbar-thumb:hover { background: var(--text-dim); }
 
 .thumb {
     display: block;
-    width: 100%;
+    flex: 0 0 calc((100% - 2 * var(--thumb-gap)) / 3);
     aspect-ratio: var(--gallery-aspect);
+    scroll-snap-align: start;
     border-radius: 10px;
     overflow: hidden;
     background: #0a0a0c;
@@ -898,7 +914,7 @@ body {
     }
 
     .gallery-thumbs {
-        gap: 8px;
+        --thumb-gap: 8px;
     }
 
     .about-roles {
