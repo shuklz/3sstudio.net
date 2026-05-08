@@ -225,6 +225,70 @@ body {
     animation: fadeUp 1.1s 0.3s ease forwards;
 }
 
+/* Hero app-icon row — quick nav to each featured app */
+.hero-apps {
+    list-style: none;
+    margin: 36px 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    opacity: 0;
+    animation: fadeUp 1.2s 0.4s ease forwards;
+}
+
+.hero-app {
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    border: 1px solid var(--border);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    box-shadow: 0 6px 16px -8px rgba(0, 0, 0, 0.6);
+    position: relative;
+    text-decoration: none;
+}
+
+.hero-app:hover,
+.hero-app:focus-visible {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 14px 30px -10px rgba(0, 0, 0, 0.7);
+    border-color: var(--border-strong);
+    outline: none;
+}
+
+.hero-app img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-app::after {
+    content: attr(aria-label);
+    position: absolute;
+    bottom: -26px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-4px);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-muted);
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.hero-app:hover::after,
+.hero-app:focus-visible::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
 @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -335,6 +399,7 @@ body {
     position: relative;
     overflow: hidden;
     box-shadow: var(--shadow-card);
+    scroll-margin-top: 90px;
 }
 
 .app-card::before {
