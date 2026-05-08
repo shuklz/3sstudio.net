@@ -573,10 +573,49 @@ body {
     margin-bottom: 32px;
 }
 
-/* Portrait apps (iPhone / iPad screenshots) */
+/* Portrait apps (iPhone / iPad screenshots) — single hero column */
 .app-gallery--portrait {
     --gallery-aspect: 3 / 4;
     --gallery-max-width: 420px;
+}
+
+/* Portrait apps shown as a side-by-side strip — fills the same width as the
+   landscape hero, replaces the hero+thumbs split with N equal-width buttons */
+.app-gallery--strip .gallery-strip {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+}
+
+.app-gallery--strip .strip-item {
+    flex: 1 1 0;
+    min-width: 0;
+    aspect-ratio: 3 / 4;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #0a0a0c;
+    border: 1px solid var(--border);
+    cursor: zoom-in;
+    padding: 0;
+    margin: 0;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.app-gallery--strip .strip-item:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-strong);
+    box-shadow: 0 20px 50px -20px rgba(0,0,0,0.6);
+}
+
+.app-gallery--strip .strip-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .app-gallery--strip .gallery-strip { gap: 8px; }
 }
 
 .gallery-main {

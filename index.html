@@ -20,7 +20,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="styles.css?v=2">
+    <link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
     <!-- Ambient background effects -->
@@ -161,22 +161,15 @@
                             CalNotes pairs a clean monthly calendar with a freeform note canvas, so every idea, sketch, or to-do lives on the day it belongs to. Write naturally with Apple Pencil, organise pages into notebooks, pick a writing template — ruled, grid, or to-do — drop in a photo background, and lock anything sensitive. Export pages to PDF or PNG and sync across devices over iCloud.
                         </p>
 
-                        <div class="app-gallery app-gallery--portrait" data-gallery>
-                            <button class="gallery-main" type="button" aria-label="Open screenshot in fullscreen viewer">
-                                <img src="images/app2-screen1.jpg" alt="Whiteboard with a waterfall photo background and template picker — Blank, Broad Ruled, Narrow Ruled, Grid, To-Do List, Photo">
-                                <span class="gallery-zoom-hint" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg>
-                                    Click to enlarge
-                                </span>
-                            </button>
-                            <div class="gallery-thumbs" role="tablist" aria-label="Screenshots">
-                                <button class="thumb is-active" type="button" role="tab" aria-selected="true" data-idx="0">
-                                    <img src="images/app2-screen1.jpg" alt="Whiteboard with photo background and template picker">
+                        <div class="app-gallery app-gallery--strip" data-gallery>
+                            <div class="gallery-strip" role="list">
+                                <button class="strip-item" type="button" role="listitem" aria-label="Open screenshot in fullscreen viewer">
+                                    <img src="images/app2-screen1.jpg" alt="Whiteboard with a waterfall photo background and template picker — Blank, Broad Ruled, Narrow Ruled, Grid, To-Do List, Photo">
                                 </button>
-                                <button class="thumb" type="button" role="tab" aria-selected="false" data-idx="1">
+                                <button class="strip-item" type="button" role="listitem" aria-label="Open screenshot in fullscreen viewer">
                                     <img src="images/app2-screen2.jpg" alt="Calendar month view with a Personal notebook and full Apple Pencil tool palette">
                                 </button>
-                                <button class="thumb" type="button" role="tab" aria-selected="false" data-idx="2">
+                                <button class="strip-item" type="button" role="listitem" aria-label="Open screenshot in fullscreen viewer">
                                     <img src="images/app2-screen3.jpg" alt="Template picker — Blank, Broad Ruled, Narrow Ruled, Grid, To-Do, Photo — with paper background swatches">
                                 </button>
                             </div>
@@ -321,6 +314,18 @@
             }
 
             document.querySelectorAll('[data-gallery]').forEach(g => {
+                const stripItems = [...g.querySelectorAll('.strip-item')];
+                if (stripItems.length) {
+                    const images = stripItems.map(b => {
+                        const img = b.querySelector('img');
+                        return { src: img.getAttribute('src'), alt: img.getAttribute('alt') };
+                    });
+                    stripItems.forEach((b, i) => {
+                        b.addEventListener('click', () => open(images, i, b));
+                    });
+                    return;
+                }
+
                 const main = g.querySelector('.gallery-main');
                 const mainImg = main.querySelector('img');
                 const thumbs = [...g.querySelectorAll('.thumb')];

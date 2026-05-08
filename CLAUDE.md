@@ -29,7 +29,7 @@ Heading reads **"Our featured apps"** (not "Currently on the App Store" — apps
 
 Each app card has an `id="app-<short-name>"` (e.g. `app-world-explorer`, `app-calnotes`) and a matching entry in the **hero app-icon row** (`.hero-apps` list under the hero CTAs) that fragment-links to it. Cards have `scroll-margin-top: 90px` so the title clears the sticky header on jump.
 
-**To add a future app**: (1) icon + screenshots into `images/` as `app<N>-icon.png` etc., (2) new `<article class="app-card" id="app-<name>">` in `#apps`, (3) one new `<li><a href="#app-<name>" class="hero-app" aria-label="…"><img src="images/app<N>-icon.png" alt="" width="60" height="60" loading="lazy"></a></li>` in `.hero-apps`. The hero icon row is designed to scale. Pick the gallery modifier that matches the app's screenshot aspect (default landscape, `app-gallery--portrait` for iPhone/iPad).
+**To add a future app**: (1) icon + screenshots into `images/` as `app<N>-icon.png` etc., (2) new `<article class="app-card" id="app-<name>">` in `#apps`, (3) one new `<li><a href="#app-<name>" class="hero-app" aria-label="…"><img src="images/app<N>-icon.png" alt="" width="60" height="60" loading="lazy"></a></li>` in `.hero-apps`. The hero icon row is designed to scale. Pick the gallery layout that matches the app's screenshot aspect: default landscape (hero + thumbs); `app-gallery--strip` for portrait apps with ≤4 screenshots (side-by-side strip, see Gallery section); `app-gallery--portrait` for portrait apps with many screenshots (single hero column with scrolling thumbs).
 
 Current cards:
 
@@ -65,9 +65,12 @@ Three CSS variables on `.app-gallery` control sizing:
 - `--gallery-max-width` — caps hero & thumb-row width (default `100%`)
 - `--thumb-gap` — gap between thumbs (default `12px`, `8px` at <768px)
 
-For a portrait app, add the `app-gallery--portrait` modifier — flips aspect to `3/4` and caps max-width to `420px` so the hero stays a sensible device-shaped centred column.
+For a portrait app there are two layouts:
 
-Lightbox JS walks every `[data-gallery]`, builds an `images` array from the thumbs, opens fullscreen on hero click, supports prev/next/Esc/arrow keys/backdrop-click-to-close. Adding a new gallery is purely a markup change — no JS to touch.
+- **`app-gallery--portrait`** — single hero column, 3:4 aspect, 420px max-width. Use when the app has many screenshots (thumbs row scrolls underneath).
+- **`app-gallery--strip`** — N portrait images side-by-side filling the full card width, no thumbs row. The markup uses `.gallery-strip` containing `.strip-item` buttons (one per image); each button opens the lightbox at its index. Use when the app has ≤4 screenshots — the strip-as-hero avoids the empty side-margin problem and a redundant thumb row showing the same images. CalNotes (A2) uses this.
+
+Lightbox JS walks every `[data-gallery]`. For strip galleries it wires every `.strip-item` directly to the lightbox; for hero+thumbs galleries it builds an `images` array from the thumbs and opens on hero click. Both support prev/next/Esc/arrow keys/backdrop-click-to-close. Adding a new gallery is purely a markup change — no JS to touch.
 
 ## About section (`#about`)
 
@@ -78,5 +81,5 @@ Heading "3S Studio" with three role cards (Finance Expert blue, Computer Science
 - **No build step.** Don't introduce one — edit and push.
 - **Hero/meta language** says "Mac, iPhone, and iPad" — keep that broad while a Mac app is present.
 - **Apex was previously fronted by Cloudflare** (A → 172.66.0.70). Cutover happened on 2026-05-08; that older site is gone.
-- **CSS cache-busting**: `index.html` references `styles.css?v=N` (currently `v=2`). Bump `N` whenever a CSS change risks hitting stale browser/Fastly caches — Pages' `cache-control: max-age=600` on the file means without a query bump, returning visitors can render unstyled HTML for up to 10 min.
+- **CSS cache-busting**: `index.html` references `styles.css?v=N` (currently `v=3`). Bump `N` whenever a CSS change risks hitting stale browser/Fastly caches — Pages' `cache-control: max-age=600` on the file means without a query bump, returning visitors can render unstyled HTML for up to 10 min.
 - **Don't run `git push --force`** or destructive ops without explicit OK — Pages serves whatever's at `main`.
