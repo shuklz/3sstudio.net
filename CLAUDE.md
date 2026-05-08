@@ -23,7 +23,13 @@ To ship a change: edit files → `git add … && git commit -m "…" && git push
 
 ## Featured apps section (`#apps`)
 
-Heading reads **"Our featured apps"** (not "Currently on the App Store" — apps are pre-launch). There used to be an A3 placeholder — removed. Two cards:
+Heading reads **"Our featured apps"** (not "Currently on the App Store" — apps are pre-launch). There used to be an A3 placeholder — removed.
+
+Each app card has an `id="app-<short-name>"` (e.g. `app-world-explorer`, `app-calnotes`) and a matching entry in the **hero app-icon row** (`.hero-apps` list under the hero CTAs) that fragment-links to it. Cards have `scroll-margin-top: 90px` so the title clears the sticky header on jump.
+
+**To add a future app**: (1) icon + screenshots into `images/` as `app<N>-icon.png` etc., (2) new `<article class="app-card" id="app-<name>">` in `#apps`, (3) one new `<li><a href="#app-<name>" class="hero-app" aria-label="…"><img src="images/app<N>-icon.png" alt=""></a></li>` in `.hero-apps`. The hero icon row is designed to scale.
+
+Current cards:
 
 - **A1 — World Explorer for Minecraft (macOS)**
   - Source app: `/Users/sanjay/Xcode/MinecraftWorldExplorerApp` (has its own `CLAUDE.md` — read first when touching A1 copy)
