@@ -53,7 +53,7 @@ Current cards:
 
 App Store CTAs on all cards still say **"Coming to the App Store"** with `href="#"` — replace with real links once each app ships.
 
-Each app card's actions row also takes an optional **"App Privacy Policy"** link rendered with `class="btn btn-link"` (subtle underlined text, no pill). Point it at the public Gist for that app — never at the private Xcode source repo. World Explorer (A1) uses gist `ad7f425edacd13e8068c0dfacab7f382`. CalNotes / StayCount / RSS Reader / PerFinMac don't have policies yet — when they do, look them up in the user's public Gists (`https://api.github.com/users/shuklz/gists`) before wiring the link.
+Each app card's actions row also takes an optional **"App Privacy Policy"** link rendered with `class="btn btn-link"` (subtle underlined text, no pill). Point it at the public Gist for that app — never at the private Xcode source repo. World Explorer (A1) uses gist `ad7f425edacd13e8068c0dfacab7f382`; StayCount (A3) uses gist `aac973f3127997b60223fb9714659379`. CalNotes / RSS Reader / PerFinMac don't have policies yet — when they do, look them up in the user's public Gists (`https://api.github.com/users/shuklz/gists`) before wiring the link.
 
 ### Planned next cards
 
