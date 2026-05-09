@@ -238,9 +238,9 @@ body {
 }
 
 .hero-app {
-    width: 60px;
-    height: 60px;
-    border-radius: 14px;
+    width: 120px;
+    height: 120px;
+    border-radius: 28px;
     overflow: hidden;
     background: linear-gradient(135deg, var(--accent), var(--accent-2));
     border: 1px solid var(--border);
