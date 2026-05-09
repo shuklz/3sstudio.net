@@ -39,21 +39,28 @@ Current cards:
   - 7 landscape (16:10) screenshots `app1-screen{1..7}.png`, ordered to match the natural narrative `01-world-map.png` … `07-world-recents.png` from the app's `AppStoreScreenshots/` folder
   - Display name is **"World Explorer for Minecraft"** — never surface the legacy folder/identifier name "MinecraftWorldExplorerApp" in marketing copy
 
-- **A2 — CalNotes (iPhone / iPad)**
+- **A2 — CalNotes (iPad)**
   - Source app: `/Users/sanjay/Xcode/CalNotes` (no `CLAUDE.md` there yet)
   - Icon: `images/app2-icon.png` (from `Assets.xcassets/AppIcon.appiconset/`)
   - 3 portrait (3:4) iPad screenshots `app2-screen{1..3}.jpg` — copy + screenshots were originally pulled from the prior apex `3sstudio.net` template (Xcode project lacked them); when better Xcode-sourced ones exist, swap them in
 
-App Store CTAs on both cards still say **"Coming to the App Store"** with `href="#"` — replace with real links once each app ships.
+- **A3 — StayCount (iPhone)**
+  - Source app: `/Users/sanjay/Xcode/StayCount` (has its own `CLAUDE.md` — read first when touching A3 copy)
+  - Icon: `images/app3-icon.png` (from `Assets.xcassets/AppIcon.appiconset/AppIcon.png`)
+  - 7 portrait iPhone screenshots `app3-screen{1..7}.png`, narrative order: home country list → add menu → country detail → timeline → flight detail → settings → PDF report
+  - Gallery uses `app-gallery--portrait` (hero + scrolling thumbs) — too many screenshots for the strip layout
+  - Pitch: scan boarding-pass barcodes (camera or Apple Wallet share) → per-country day counts for tax-residency compliance, with PDF export and on-device-only processing
 
-Each app card's actions row also takes an optional **"App Privacy Policy"** link rendered with `class="btn btn-link"` (subtle underlined text, no pill). Point it at the public Gist for that app — never at the private Xcode source repo. World Explorer (A1) uses gist `ad7f425edacd13e8068c0dfacab7f382`. CalNotes / RSS Reader / PerFinMac don't have policies yet — when they do, look them up in the user's public Gists (`https://api.github.com/users/shuklz/gists`) before wiring the link.
+App Store CTAs on all cards still say **"Coming to the App Store"** with `href="#"` — replace with real links once each app ships.
+
+Each app card's actions row also takes an optional **"App Privacy Policy"** link rendered with `class="btn btn-link"` (subtle underlined text, no pill). Point it at the public Gist for that app — never at the private Xcode source repo. World Explorer (A1) uses gist `ad7f425edacd13e8068c0dfacab7f382`. CalNotes / StayCount / RSS Reader / PerFinMac don't have policies yet — when they do, look them up in the user's public Gists (`https://api.github.com/users/shuklz/gists`) before wiring the link.
 
 ### Planned next cards
 
 The studio has two more apps queued for this section. Names/order come from the prior carrd.co build; confirm with the user before shipping.
 
-- **A3 — RSS Reader** — pending. Source folder TBD (likely `/Users/sanjay/Xcode/RSSReader` or similar).
-- **A4 — PerFinMac** (macOS personal finance app; the user has also referred to it as "MacPerFin" — confirm canonical name when filling in). Pending. Source folder TBD.
+- **A4 — RSS Reader** — pending. Source folder TBD (likely `/Users/sanjay/Xcode/RSSReader` or similar).
+- **A5 — PerFinMac** (macOS personal finance app; the user has also referred to it as "MacPerFin" — confirm canonical name when filling in). Pending. Source folder TBD.
 
 When picking up either: ask the user for the Xcode path + which screenshots to use, then follow the "To add a future app" recipe above. Each new app needs its own anchor id and an entry in the hero icon row.
 
