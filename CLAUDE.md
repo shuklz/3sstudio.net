@@ -46,6 +46,8 @@ Current cards:
 
 App Store CTAs on both cards still say **"Coming to the App Store"** with `href="#"` — replace with real links once each app ships.
 
+Each app card's actions row also takes an optional **"App Privacy Policy"** link rendered with `class="btn btn-link"` (subtle underlined text, no pill). Point it at the public Gist for that app — never at the private Xcode source repo. World Explorer (A1) uses gist `ad7f425edacd13e8068c0dfacab7f382`. CalNotes / RSS Reader / PerFinMac don't have policies yet — when they do, look them up in the user's public Gists (`https://api.github.com/users/shuklz/gists`) before wiring the link.
+
 ### Planned next cards
 
 The studio has two more apps queued for this section. Names/order come from the prior carrd.co build; confirm with the user before shipping.
@@ -81,5 +83,5 @@ Heading "3S Studio" with three role cards (Finance Expert blue, Computer Science
 - **No build step.** Don't introduce one — edit and push.
 - **Hero/meta language** says "Mac, iPhone, and iPad" — keep that broad while a Mac app is present.
 - **Apex was previously fronted by Cloudflare** (A → 172.66.0.70). Cutover happened on 2026-05-08; that older site is gone.
-- **CSS cache-busting**: `index.html` references `styles.css?v=N` (currently `v=3`). Bump `N` whenever a CSS change risks hitting stale browser/Fastly caches — Pages' `cache-control: max-age=600` on the file means without a query bump, returning visitors can render unstyled HTML for up to 10 min.
+- **CSS cache-busting**: `index.html` references `styles.css?v=N` (currently `v=4`). Bump `N` whenever a CSS change risks hitting stale browser/Fastly caches — Pages' `cache-control: max-age=600` on the file means without a query bump, returning visitors can render unstyled HTML for up to 10 min.
 - **Don't run `git push --force`** or destructive ops without explicit OK — Pages serves whatever's at `main`.

@@ -356,6 +356,22 @@ body {
     border-color: var(--border-strong);
 }
 
+.btn-link {
+    background: transparent;
+    color: var(--text-muted);
+    padding: 12px 8px;
+    font-size: 14px;
+    border: none;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--border-strong);
+}
+
+.btn-link:hover {
+    color: var(--text);
+    text-decoration-color: var(--text);
+}
+
 /* ====== Section headers ====== */
 .section-header {
     margin-bottom: 56px;
