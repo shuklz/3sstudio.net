@@ -232,15 +232,15 @@ body {
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 20px;
     opacity: 0;
     animation: fadeUp 1.2s 0.4s ease forwards;
 }
 
 .hero-app {
-    width: 120px;
-    height: 120px;
-    border-radius: 28px;
+    width: 180px;
+    height: 180px;
+    border-radius: 42px;
     overflow: hidden;
     background: linear-gradient(135deg, var(--accent), var(--accent-2));
     border: 1px solid var(--border);
@@ -1011,6 +1011,9 @@ body {
 
     .hero { padding: 80px 0 60px; }
     .hero-subtitle { font-size: 18px; }
+
+    .hero-apps { gap: 16px; }
+    .hero-app { width: 120px; height: 120px; border-radius: 28px; }
 
     .app-card { padding: 24px; }
 
