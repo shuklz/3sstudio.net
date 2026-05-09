@@ -29,7 +29,7 @@ Heading reads **"Our featured apps"** (not "Currently on the App Store" — apps
 
 Each app card has an `id="app-<short-name>"` (e.g. `app-world-explorer`, `app-calnotes`) and a matching entry in the **hero app-icon row** (`.hero-apps` list under the hero CTAs) that fragment-links to it. Cards have `scroll-margin-top: 90px` so the title clears the sticky header on jump.
 
-**To add a future app**: (1) icon + screenshots into `images/` as `app<N>-icon.png` etc., (2) new `<article class="app-card" id="app-<name>">` in `#apps`, (3) one new `<li><a href="#app-<name>" class="hero-app" aria-label="…"><img src="images/app<N>-icon.png" alt="" width="60" height="60" loading="lazy"></a></li>` in `.hero-apps`. The hero icon row is designed to scale. Pick the gallery layout that matches the app's screenshot aspect: default landscape (hero + thumbs); `app-gallery--strip` for portrait apps with ≤4 screenshots (side-by-side strip, see Gallery section); `app-gallery--portrait` for portrait apps with many screenshots (single hero column with scrolling thumbs).
+**To add a future app**: (1) icon + screenshots into `images/` as `app<N>-icon.png` etc., (2) new `<article class="app-card" id="app-<name>">` in `#apps`, (3) one new `<li><a href="#app-<name>" class="hero-app" aria-label="…"><img src="images/app<N>-icon.png" alt="" width="60" height="60" loading="lazy"></a></li>` in `.hero-apps`. The hero icon row is designed to scale. Pick the gallery layout that matches the app's screenshot aspect: default landscape (hero + thumbs); `app-gallery--strip` for portrait apps (side-by-side strip — flex-shrinks to any count, used today with 3 and 7 screenshots; prefer this over the portrait hero+thumbs layout because the strip eliminates the empty side margins on a portrait hero); `app-gallery--portrait` (single 420px hero column + scrolling thumbs) is still available but leaves wide blank space on either side and is generally not the right pick anymore.
 
 Current cards:
 
@@ -48,7 +48,7 @@ Current cards:
   - Source app: `/Users/sanjay/Xcode/StayCount` (has its own `CLAUDE.md` — read first when touching A3 copy)
   - Icon: `images/app3-icon.png` (from `Assets.xcassets/AppIcon.appiconset/AppIcon.png`)
   - 7 portrait iPhone screenshots `app3-screen{1..7}.png`, narrative order: home country list → add menu → country detail → timeline → flight detail → settings → PDF report
-  - Gallery uses `app-gallery--portrait` (hero + scrolling thumbs) — too many screenshots for the strip layout
+  - Gallery uses `app-gallery--strip` with all 7 screenshots — strip flex-shrinks fine to seven items and the user explicitly preferred no blank side margins over per-thumb size
   - Pitch: scan boarding-pass barcodes (camera or Apple Wallet share) → per-country day counts for tax-residency compliance, with PDF export and on-device-only processing
 
 App Store CTAs on all cards still say **"Coming to the App Store"** with `href="#"` — replace with real links once each app ships.
@@ -77,7 +77,7 @@ Three CSS variables on `.app-gallery` control sizing:
 For a portrait app there are two layouts:
 
 - **`app-gallery--portrait`** — single hero column, 3:4 aspect, 420px max-width. Use when the app has many screenshots (thumbs row scrolls underneath).
-- **`app-gallery--strip`** — N portrait images side-by-side filling the full card width, no thumbs row. The markup uses `.gallery-strip` containing `.strip-item` buttons (one per image); each button opens the lightbox at its index. Use when the app has ≤4 screenshots — the strip-as-hero avoids the empty side-margin problem and a redundant thumb row showing the same images. CalNotes (A2) uses this.
+- **`app-gallery--strip`** — N portrait images side-by-side filling the full card width, no thumbs row. The markup uses `.gallery-strip` containing `.strip-item` buttons (one per image); each button opens the lightbox at its index. The strip flex-shrinks to any count: CalNotes (A2) uses 3, StayCount (A3) uses 7. Per-item width drops as count rises (~268px each at 3, ~108px each at 7 on desktop) — at very high counts thumbnails get small, but the trade-off the user has consistently preferred is "no blank side margins" over "larger thumbs". Default to strip for portrait galleries.
 
 Lightbox JS walks every `[data-gallery]`. For strip galleries it wires every `.strip-item` directly to the lightbox; for hero+thumbs galleries it builds an `images` array from the thumbs and opens on hero click. Both support prev/next/Esc/arrow keys/backdrop-click-to-close. Adding a new gallery is purely a markup change — no JS to touch.
 
