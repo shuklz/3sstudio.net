@@ -20,6 +20,7 @@ To ship a change: edit files → `git add … && git commit -m "…" && git push
 - `index.html` — entire page (header, hero, apps, about, contact, footer, shared lightbox at the bottom of `<body>`)
 - `styles.css` — all styles, dark theme
 - `images/` — app icons + screenshots
+- `videos/` — demo videos served from Pages (lowercase folder name; URLs are case-sensitive on Pages even though macOS's filesystem is case-insensitive — if you need to rename a folder's case, do it via a two-step rename `mv X X_tmp && mv X_tmp x`)
 - `CNAME` — claims `3sstudio.net` for Pages, **don't delete**
 - `.gitignore` — `.DS_Store`
 
@@ -51,6 +52,7 @@ Current cards:
   - Icon: `images/app3-icon.png` (from `Assets.xcassets/AppIcon.appiconset/AppIcon.png`)
   - 4 portrait iPhone screenshots `app3-screen{1..4}.png`, narrative order: home country list (130 days tracked) → timeline with reconciliation → PDF report → about/features. Trimmed from the previous 7-screenshot set on 2026-05-10 so each thumb in the strip lands larger; if you re-expand the set, the strip will auto-shrink each thumb again.
   - Gallery uses `app-gallery--strip` with all 4 screenshots
+  - Demo video at `videos/staycount-resident-demo.mp4` (~15MB, 384×832 portrait H.264, ~1:37) sits **above** the strip via the `.app-video` block — centred at 380px max width with the home screen as `poster`, controls visible, no autoplay. Pattern is reusable for other apps: drop the same `<div class="app-video"><video>…</video></div>` block above the gallery and update the `<source>` and `poster`. Keep new demo videos under ~25MB; for larger files switch to YouTube/Vimeo embeds rather than bloating the repo.
   - Pitch: scan boarding-pass barcodes (camera or Apple Wallet share) → per-country day counts for tax-residency compliance, with PDF export and on-device-only processing
 
 App Store CTAs on all cards still say **"Coming to the App Store"** with `href="#"` — replace with real links once each app ships.
@@ -94,5 +96,5 @@ Heading "3S Studio" with three role cards (Finance Expert blue, Computer Science
 - **No build step.** Don't introduce one — edit and push.
 - **Hero/meta language** says "Mac, iPhone, and iPad" — keep that broad while a Mac app is present.
 - **Apex was previously fronted by Cloudflare** (A → 172.66.0.70). Cutover happened on 2026-05-08; that older site is gone.
-- **CSS cache-busting**: `index.html` references `styles.css?v=N` (currently `v=6`). Bump `N` whenever a CSS change risks hitting stale browser/Fastly caches — Pages' `cache-control: max-age=600` on the file means without a query bump, returning visitors can render unstyled HTML for up to 10 min.
+- **CSS cache-busting**: `index.html` references `styles.css?v=N` (currently `v=7`). Bump `N` whenever a CSS change risks hitting stale browser/Fastly caches — Pages' `cache-control: max-age=600` on the file means without a query bump, returning visitors can render unstyled HTML for up to 10 min.
 - **Don't run `git push --force`** or destructive ops without explicit OK — Pages serves whatever's at `main`.

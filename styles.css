@@ -582,6 +582,28 @@ body {
     flex-wrap: wrap;
 }
 
+/* ====== Inline demo video (portrait phone capture, centred) ====== */
+.app-video {
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: center;
+}
+
+.app-video video {
+    width: 100%;
+    max-width: 380px;
+    aspect-ratio: 384 / 832;
+    border-radius: 22px;
+    background: #0a0a0c;
+    border: 1px solid var(--border);
+    display: block;
+    box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 768px) {
+    .app-video video { max-width: 320px; border-radius: 18px; }
+}
+
 /* ====== Gallery (hero image + thumbnails) ====== */
 .app-gallery {
     --gallery-aspect: 16 / 10;
