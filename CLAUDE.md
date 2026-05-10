@@ -46,16 +46,16 @@ Current cards:
   - Icon: `images/app2-icon.png` (from `Assets.xcassets/AppIcon.appiconset/`)
   - 3 portrait (3:4) iPad screenshots `app2-screen{1..3}.jpg` — copy + screenshots were originally pulled from the prior apex `3sstudio.net` template (Xcode project lacked them); when better Xcode-sourced ones exist, swap them in
 
-- **A3 — StayCount (iPhone)**
-  - Source app: `/Users/sanjay/Xcode/StayCount` (has its own `CLAUDE.md` — read first when touching A3 copy)
+- **A3 — StayCount Resident (iPhone)**
+  - Source app: `/Users/sanjay/Xcode/StayCount` (has its own `CLAUDE.md` — read first when touching A3 copy). Note the Xcode folder is still named `StayCount`; the product was renamed to **StayCount Resident** on 2026-05-10 because "StayCount" was already taken on the App Store. Always use "StayCount Resident" in marketing copy.
   - Icon: `images/app3-icon.png` (from `Assets.xcassets/AppIcon.appiconset/AppIcon.png`)
-  - 7 portrait iPhone screenshots `app3-screen{1..7}.png`, narrative order: home country list → add menu → country detail → timeline → flight detail → settings → PDF report
-  - Gallery uses `app-gallery--strip` with all 7 screenshots — strip flex-shrinks fine to seven items and the user explicitly preferred no blank side margins over per-thumb size
+  - 4 portrait iPhone screenshots `app3-screen{1..4}.png`, narrative order: home country list (130 days tracked) → timeline with reconciliation → PDF report → about/features. Trimmed from the previous 7-screenshot set on 2026-05-10 so each thumb in the strip lands larger; if you re-expand the set, the strip will auto-shrink each thumb again.
+  - Gallery uses `app-gallery--strip` with all 4 screenshots
   - Pitch: scan boarding-pass barcodes (camera or Apple Wallet share) → per-country day counts for tax-residency compliance, with PDF export and on-device-only processing
 
 App Store CTAs on all cards still say **"Coming to the App Store"** with `href="#"` — replace with real links once each app ships.
 
-Each app card's actions row also takes an optional **"App Privacy Policy"** link rendered with `class="btn btn-link"` (subtle underlined text, no pill). Point it at the public Gist for that app — never at the private Xcode source repo. World Explorer (A1) uses gist `ad7f425edacd13e8068c0dfacab7f382`; StayCount (A3) uses gist `aac973f3127997b60223fb9714659379`. CalNotes / RSS Reader / PerFinMac don't have policies yet — when they do, look them up in the user's public Gists (`https://api.github.com/users/shuklz/gists`) before wiring the link.
+Each app card's actions row also takes an optional **"App Privacy Policy"** link rendered with `class="btn btn-link"` (subtle underlined text, no pill). Point it at the public Gist for that app — never at the private Xcode source repo. World Explorer (A1) uses gist `ad7f425edacd13e8068c0dfacab7f382`; StayCount Resident (A3) uses gist `aac973f3127997b60223fb9714659379`. CalNotes / RSS Reader / PerFinMac don't have policies yet — when they do, look them up in the user's public Gists (`https://api.github.com/users/shuklz/gists`) before wiring the link.
 
 Every app card also gets an **"App Support"** link rendered with `class="btn btn-link"`, pointing to `mailto:appsupport@3sstudio.net` (shared studio support inbox — same address for every app). Always include this on new app cards.
 
@@ -81,7 +81,7 @@ Three CSS variables on `.app-gallery` control sizing:
 For a portrait app there are two layouts:
 
 - **`app-gallery--portrait`** — single hero column, 3:4 aspect, 420px max-width. Use when the app has many screenshots (thumbs row scrolls underneath).
-- **`app-gallery--strip`** — N portrait images side-by-side filling the full card width, no thumbs row. The markup uses `.gallery-strip` containing `.strip-item` buttons (one per image); each button opens the lightbox at its index. The strip flex-shrinks to any count: CalNotes (A2) uses 3, StayCount (A3) uses 7. Per-item width drops as count rises (~268px each at 3, ~108px each at 7 on desktop) — at very high counts thumbnails get small, but the trade-off the user has consistently preferred is "no blank side margins" over "larger thumbs". Default to strip for portrait galleries.
+- **`app-gallery--strip`** — N portrait images side-by-side filling the full card width, no thumbs row. The markup uses `.gallery-strip` containing `.strip-item` buttons (one per image); each button opens the lightbox at its index. The strip flex-shrinks to any count: CalNotes (A2) uses 3, StayCount Resident (A3) uses 4. Per-item width drops as count rises (~268px each at 3, ~205px each at 4, ~108px each at 7 on desktop) — at very high counts thumbnails get small, but the trade-off the user has consistently preferred is "no blank side margins" over "larger thumbs". Default to strip for portrait galleries.
 
 Lightbox JS walks every `[data-gallery]`. For strip galleries it wires every `.strip-item` directly to the lightbox; for hero+thumbs galleries it builds an `images` array from the thumbs and opens on hero click. Both support prev/next/Esc/arrow keys/backdrop-click-to-close. Adding a new gallery is purely a markup change — no JS to touch.
 
