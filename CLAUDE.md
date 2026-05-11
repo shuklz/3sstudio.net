@@ -59,7 +59,7 @@ App Store CTAs on all cards still say **"Coming to the App Store"** with `href="
 
 Each app card's actions row also takes an optional **"App Privacy Policy"** link rendered with `class="btn btn-link"` (subtle underlined text, no pill). Point it at the public Gist for that app — never at the private Xcode source repo. World Explorer (A1) uses gist `ad7f425edacd13e8068c0dfacab7f382`; StayCount Resident (A3) uses gist `aac973f3127997b60223fb9714659379`. CalNotes / RSS Reader / PerFinMac don't have policies yet — when they do, look them up in the user's public Gists (`https://api.github.com/users/shuklz/gists`) before wiring the link.
 
-Every app card also gets an **"App Support"** link rendered with `class="btn btn-link"`, pointing to `mailto:appsupport@3sstudio.net` (shared studio support inbox — same address for every app). Always include this on new app cards.
+Every app card also gets an **"App Support"** link rendered with `class="btn btn-link"`, pointing to `mailto:appsupport@3sstudio.net?subject=App%20Support%3A%20<App%20Name>` (shared studio support inbox — same address for every app, but the subject is pre-filled with the app's display name so the user can route incoming mail by app). URL-encode spaces as `%20` and the colon as `%3A`. Examples currently in use: `App%20Support%3A%20World%20Explorer%20for%20Minecraft`, `App%20Support%3A%20CalNotes`, `App%20Support%3A%20StayCount%20Resident`. Always include this on new app cards.
 
 ### Planned next cards
 
