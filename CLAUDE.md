@@ -28,29 +28,41 @@ To ship a change: edit files → `git add … && git commit -m "…" && git push
 
 Heading reads **"Our featured apps"** (not "Currently on the App Store" — apps are pre-launch).
 
-Each app card has an `id="app-<short-name>"` (e.g. `app-world-explorer`, `app-calnotes`) and a matching entry in the **hero app-icon row** (`.hero-apps` list under the hero CTAs) that fragment-links to it. Cards have `scroll-margin-top: 90px` so the title clears the sticky header on jump.
+Each app card has an `id="app-<short-name>"` (e.g. `app-kaaldarshi`, `app-world-explorer`) and a matching entry in the **hero app-icon row** (`.hero-apps` list under the hero CTAs) that fragment-links to it. Cards have `scroll-margin-top: 90px` so the title clears the sticky header on jump.
+
+Image filenames are numbered `app<N>-icon.png` / `app<N>-screen<M>.png` where `<N>` matches the card's display order (A1 = app1-*, A2 = app2-*, …). When a new app slots into the middle/top of the order, **cascade-rename existing files** with `git mv` so the numbers stay aligned with card position — there is no chronological numbering scheme.
 
 **To add a future app**: (1) icon + screenshots into `images/` as `app<N>-icon.png` etc., (2) new `<article class="app-card" id="app-<name>">` in `#apps`, (3) one new `<li><a href="#app-<name>" class="hero-app" aria-label="…"><img src="images/app<N>-icon.png" alt="" width="180" height="180" loading="lazy"></a></li>` in `.hero-apps`. The hero icon row is designed to scale. Pick the gallery layout that matches the app's screenshot aspect: default landscape (hero + thumbs); `app-gallery--strip` for portrait apps (side-by-side strip — flex-shrinks to any count, used today with 3 and 7 screenshots; prefer this over the portrait hero+thumbs layout because the strip eliminates the empty side margins on a portrait hero); `app-gallery--portrait` (single 420px hero column + scrolling thumbs) is still available but leaves wide blank space on either side and is generally not the right pick anymore.
 
 **Hero-icon sizing is responsive** (don't hard-code a single value): default `.hero-app` is 180×180 with 42px radius and a 20px gap (desktop), and the `@media (max-width: 768px)` block in `styles.css` scales it down to 120×120 / 28px radius / 16px gap for mobile. The inline `width="180" height="180"` on the `<img>` is the desktop intrinsic size — CSS overrides it on mobile via `width: 100%` of the parent. If you change one size, change the other proportionally and keep radius at ~23% of width to preserve the iOS-squircle look.
 
+A card optionally includes a **rich feature list** between the description and the gallery — markup is `<div class="app-features"><h4 class="app-features-title">…</h4><ul class="app-feature-list"><li><strong>Title</strong><span>Description.</span></li>…</ul></div>`. Renders as a two-column grid (single-column <720px) inside a subtly tinted panel with gradient bullet dots. Used today only on Kaaldarshi (A1) because that app's feature surface is broad — most apps should stick to the single `.app-description` paragraph. Mirror the in-app WelcomeView feature copy when one exists (Kaaldarshi pulls from `VedicClockApp.swift:81-144`).
+
 Current cards:
 
-- **A1 — World Explorer for Minecraft (macOS)**
-  - Source app: `/Users/sanjay/Xcode/MinecraftWorldExplorerApp` (has its own `CLAUDE.md` — read first when touching A1 copy)
-  - Icon: `images/app1-icon.png` (from `Assets.xcassets/AppIcon.appiconset/MWE.png`)
-  - 7 landscape (16:10) screenshots `app1-screen{1..7}.png`, ordered to match the natural narrative `01-world-map.png` … `07-world-recents.png` from the app's `AppStoreScreenshots/` folder
+- **A1 — Kaaldarshi (universal: macOS, iPhone, iPad)**
+  - Source app: `/Users/sanjay/Xcode/Kaaldarshi` — note the Xcode target folder is still called `VedicClock` (legacy name); product was renamed to **Kaaldarshi**, never surface "VedicClock" in marketing copy. The `WelcomeView` struct in `VedicClock/App/VedicClockApp.swift` is the canonical source of the feature list — copy edits should track that file.
+  - Icon: `images/app1-icon.png` (from `Assets.xcassets/AppIcon.appiconset/AppIcon 1.png`)
+  - 9 landscape macOS screenshots `app1-screen{1..9}.png`, downscaled from the originals in `Screenshots-Kaaldarshi app/` (which is also tracked in the repo) to 2000px wide via `sips -Z 2000`. Narrative order: welcome → main dashboard → D1 charts → profile card → Mahadasha detail → Manglik → Sade Sati → Full Kundli PDF cover → Birth Chart Summary. Aspect ratio ~5:4, so the gallery uses inline `style="--gallery-aspect: 5 / 4;"` on `.app-gallery`. Thumbs use `loading="lazy"` to defer fetches.
+  - Pitch: classical Vedic Jyotish — Panchang, Vimshottari Dasha, divisional charts, yogas/doshas, transits, full multi-page Kundli PDF — all on-device using the Swiss Ephemeris
+  - Bundles SwissEphemeris as a sibling folder at `/Users/sanjay/Xcode/Kaaldarshi/SwissEphemeris`
+  - No App Privacy Policy gist yet — when one exists, look it up under the user's public Gists and add a `btn-link` row
+
+- **A2 — World Explorer for Minecraft (macOS)**
+  - Source app: `/Users/sanjay/Xcode/MinecraftWorldExplorerApp` (has its own `CLAUDE.md` — read first when touching A2 copy)
+  - Icon: `images/app2-icon.png` (from `Assets.xcassets/AppIcon.appiconset/MWE.png`)
+  - 7 landscape (16:10) screenshots `app2-screen{1..7}.png`, ordered to match the natural narrative `01-world-map.png` … `07-world-recents.png` from the app's `AppStoreScreenshots/` folder
   - Display name is **"World Explorer for Minecraft"** — never surface the legacy folder/identifier name "MinecraftWorldExplorerApp" in marketing copy
 
-- **A2 — CalNotes (iPad)**
+- **A3 — CalNotes (iPad)**
   - Source app: `/Users/sanjay/Xcode/CalNotes` (no `CLAUDE.md` there yet)
-  - Icon: `images/app2-icon.png` (from `Assets.xcassets/AppIcon.appiconset/`)
-  - 3 portrait (3:4) iPad screenshots `app2-screen{1..3}.jpg` — copy + screenshots were originally pulled from the prior apex `3sstudio.net` template (Xcode project lacked them); when better Xcode-sourced ones exist, swap them in
+  - Icon: `images/app3-icon.png` (from `Assets.xcassets/AppIcon.appiconset/`)
+  - 3 portrait (3:4) iPad screenshots `app3-screen{1..3}.jpg` — copy + screenshots were originally pulled from the prior apex `3sstudio.net` template (Xcode project lacked them); when better Xcode-sourced ones exist, swap them in
 
-- **A3 — StayCount Resident (iPhone)**
-  - Source app: `/Users/sanjay/Xcode/StayCount` (has its own `CLAUDE.md` — read first when touching A3 copy). Note the Xcode folder is still named `StayCount`; the product was renamed to **StayCount Resident** on 2026-05-10 because "StayCount" was already taken on the App Store. Always use "StayCount Resident" in marketing copy.
-  - Icon: `images/app3-icon.png` (from `Assets.xcassets/AppIcon.appiconset/AppIcon.png`)
-  - 4 portrait iPhone screenshots `app3-screen{1..4}.png`, narrative order: home country list (130 days tracked) → timeline with reconciliation → PDF report → about/features. Trimmed from the previous 7-screenshot set on 2026-05-10 so each thumb in the strip lands larger; if you re-expand the set, the strip will auto-shrink each thumb again.
+- **A4 — StayCount Resident (iPhone)**
+  - Source app: `/Users/sanjay/Xcode/StayCount` (has its own `CLAUDE.md` — read first when touching A4 copy). Note the Xcode folder is still named `StayCount`; the product was renamed to **StayCount Resident** on 2026-05-10 because "StayCount" was already taken on the App Store. Always use "StayCount Resident" in marketing copy.
+  - Icon: `images/app4-icon.png` (from `Assets.xcassets/AppIcon.appiconset/AppIcon.png`)
+  - 4 portrait iPhone screenshots `app4-screen{1..4}.png`, narrative order: home country list (130 days tracked) → timeline with reconciliation → PDF report → about/features. Trimmed from the previous 7-screenshot set on 2026-05-10 so each thumb in the strip lands larger; if you re-expand the set, the strip will auto-shrink each thumb again.
   - Gallery uses `app-gallery--strip` with all 4 screenshots
   - Demo video at `videos/staycount-resident-demo.mp4` (~15MB, 384×832 portrait H.264, ~1:37) sits **above** the strip via the `.app-video` block — centred at 380px max width with the home screen as `poster`, controls visible, no autoplay. Pattern is reusable for other apps: drop the same `<div class="app-video"><video>…</video></div>` block above the gallery and update the `<source>` and `poster`. Keep new demo videos under ~25MB; for larger files switch to YouTube/Vimeo embeds rather than bloating the repo.
   - Pitch: scan boarding-pass barcodes (camera or Apple Wallet share) → per-country day counts for tax-residency compliance, with PDF export and on-device-only processing
@@ -65,8 +77,8 @@ Every app card also gets an **"App Support"** link rendered with `class="btn btn
 
 The studio has two more apps queued for this section. Names/order come from the prior carrd.co build; confirm with the user before shipping.
 
-- **A4 — RSS Reader** — pending. Source folder TBD (likely `/Users/sanjay/Xcode/RSSReader` or similar).
-- **A5 — PerFinMac** (macOS personal finance app; the user has also referred to it as "MacPerFin" — confirm canonical name when filling in). Pending. Source folder TBD.
+- **A5 — RSS Reader** — pending. Source folder TBD (likely `/Users/sanjay/Xcode/RSSReader` or similar).
+- **A6 — PerFinMac** (macOS personal finance app; the user has also referred to it as "MacPerFin" — confirm canonical name when filling in). Pending. Source folder TBD.
 
 When picking up either: ask the user for the Xcode path + which screenshots to use, then follow the "To add a future app" recipe above. Each new app needs its own anchor id and an entry in the hero icon row.
 

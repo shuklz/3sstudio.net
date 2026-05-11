@@ -524,6 +524,68 @@ body {
     max-width: 720px;
 }
 
+/* ====== Rich feature list (app cards) ====== */
+.app-features {
+    margin: -8px 0 32px;
+    padding: 22px 24px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.app-features-title {
+    margin: 0 0 16px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+}
+
+.app-feature-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px 28px;
+}
+
+@media (min-width: 720px) {
+    .app-feature-list {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.app-feature-list li {
+    position: relative;
+    padding-left: 20px;
+    color: var(--text-muted);
+    font-size: 14.5px;
+    line-height: 1.55;
+}
+
+.app-feature-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    box-shadow: 0 0 0 3px rgba(255, 69, 58, 0.08);
+}
+
+.app-feature-list li strong {
+    display: block;
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 3px;
+    letter-spacing: -0.005em;
+}
+
 /* ====== Screenshots ====== */
 .app-screenshots {
     display: grid;
@@ -1038,6 +1100,11 @@ body {
     .hero-app { width: 120px; height: 120px; border-radius: 28px; }
 
     .app-card { padding: 24px; }
+
+    .app-features { padding: 18px 18px; }
+    .app-feature-list { gap: 14px; }
+    .app-feature-list li { font-size: 14px; }
+    .app-feature-list li strong { font-size: 14.5px; }
 
     .app-card-header {
         flex-direction: column;
