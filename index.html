@@ -20,7 +20,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="styles.css?v=8">
+    <link rel="stylesheet" href="styles.css?v=9">
 </head>
 <body>
     <!-- Ambient background effects -->
@@ -61,10 +61,10 @@
                     <a href="#about" class="btn btn-ghost">Our story →</a>
                 </div>
                 <ul class="hero-apps" aria-label="Featured apps">
-                    <li><a href="#app-kaaldarshi" class="hero-app" aria-label="Kaaldarshi"><img src="images/app1-icon.png" alt="" width="180" height="180" loading="lazy"></a></li>
-                    <li><a href="#app-world-explorer" class="hero-app" aria-label="World Explorer for Minecraft"><img src="images/app2-icon.png" alt="" width="180" height="180" loading="lazy"></a></li>
-                    <li><a href="#app-calnotes" class="hero-app" aria-label="CalNotes"><img src="images/app3-icon.png" alt="" width="180" height="180" loading="lazy"></a></li>
-                    <li><a href="#app-staycount" class="hero-app" aria-label="StayCount Resident"><img src="images/app4-icon.png" alt="" width="180" height="180" loading="lazy"></a></li>
+                    <li><a href="#app-kaaldarshi" class="hero-app" data-app-tab="app-kaaldarshi" aria-label="Kaaldarshi"><img src="images/app1-icon.png" alt="" width="180" height="180" loading="lazy"></a></li>
+                    <li><a href="#app-world-explorer" class="hero-app" data-app-tab="app-world-explorer" aria-label="World Explorer for Minecraft"><img src="images/app2-icon.png" alt="" width="180" height="180" loading="lazy"></a></li>
+                    <li><a href="#app-calnotes" class="hero-app" data-app-tab="app-calnotes" aria-label="CalNotes"><img src="images/app3-icon.png" alt="" width="180" height="180" loading="lazy"></a></li>
+                    <li><a href="#app-staycount" class="hero-app" data-app-tab="app-staycount" aria-label="StayCount Resident"><img src="images/app4-icon.png" alt="" width="180" height="180" loading="lazy"></a></li>
                 </ul>
             </div>
         </section>
@@ -75,6 +75,26 @@
                 <div class="section-header">
                     <p class="section-label">— Our Apps</p>
                     <h2 class="section-title">Our featured apps</h2>
+                    <p class="section-hint">Pick an app to see its story.</p>
+                </div>
+
+                <div class="app-tabs" role="tablist" aria-label="Select an app">
+                    <button class="app-tab is-active" type="button" role="tab" aria-selected="true" data-app-tab="app-kaaldarshi">
+                        <img src="images/app1-icon.png" alt="" width="56" height="56" loading="lazy">
+                        <span>Kaaldarshi</span>
+                    </button>
+                    <button class="app-tab" type="button" role="tab" aria-selected="false" data-app-tab="app-world-explorer">
+                        <img src="images/app2-icon.png" alt="" width="56" height="56" loading="lazy">
+                        <span>World Explorer</span>
+                    </button>
+                    <button class="app-tab" type="button" role="tab" aria-selected="false" data-app-tab="app-calnotes">
+                        <img src="images/app3-icon.png" alt="" width="56" height="56" loading="lazy">
+                        <span>CalNotes</span>
+                    </button>
+                    <button class="app-tab" type="button" role="tab" aria-selected="false" data-app-tab="app-staycount">
+                        <img src="images/app4-icon.png" alt="" width="56" height="56" loading="lazy">
+                        <span>StayCount Resident</span>
+                    </button>
                 </div>
 
                 <div class="apps-grid">
@@ -171,7 +191,7 @@
                     </article>
 
                     <!-- APP CARD 2 -->
-                    <article class="app-card" id="app-world-explorer">
+                    <article class="app-card" id="app-world-explorer" hidden>
                         <div class="app-card-header">
                             <div class="app-icon">
                                 <img src="images/app2-icon.png" alt="World Explorer for Minecraft icon" onerror="this.style.display='none'; this.parentElement.classList.add('placeholder');">
@@ -236,7 +256,7 @@
                     </article>
 
                     <!-- APP CARD 3 -->
-                    <article class="app-card" id="app-calnotes">
+                    <article class="app-card" id="app-calnotes" hidden>
                         <div class="app-card-header">
                             <div class="app-icon">
                                 <img src="images/app3-icon.png" alt="CalNotes icon" onerror="this.style.display='none'; this.parentElement.classList.add('placeholder');">
@@ -281,7 +301,7 @@
                     </article>
 
                     <!-- APP CARD 4 -->
-                    <article class="app-card" id="app-staycount">
+                    <article class="app-card" id="app-staycount" hidden>
                         <div class="app-card-header">
                             <div class="app-icon">
                                 <img src="images/app4-icon.png" alt="StayCount Resident icon" onerror="this.style.display='none'; this.parentElement.classList.add('placeholder');">
@@ -422,6 +442,49 @@
 
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        // App tabs — show only the selected app card
+        (() => {
+            const tabs = [...document.querySelectorAll('[data-app-tab]')];
+            const cards = [...document.querySelectorAll('.apps-grid .app-card')];
+            const ids = cards.map(c => c.id);
+            if (!tabs.length || !cards.length) return;
+
+            function select(id, { scroll = false, updateHash = true } = {}) {
+                if (!ids.includes(id)) id = ids[0];
+                cards.forEach(c => { c.hidden = c.id !== id; });
+                tabs.forEach(t => {
+                    const active = t.dataset.appTab === id;
+                    t.classList.toggle('is-active', active);
+                    if (t.getAttribute('role') === 'tab') {
+                        t.setAttribute('aria-selected', active ? 'true' : 'false');
+                    }
+                });
+                if (updateHash && history.replaceState) {
+                    history.replaceState(null, '', '#' + id);
+                }
+                if (scroll) {
+                    const apps = document.getElementById('apps');
+                    if (apps) apps.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+
+            tabs.forEach(t => {
+                t.addEventListener('click', e => {
+                    e.preventDefault();
+                    const id = t.dataset.appTab;
+                    select(id, { scroll: t.classList.contains('hero-app') });
+                });
+            });
+
+            const initial = (window.location.hash || '').replace('#', '');
+            select(ids.includes(initial) ? initial : ids[0], { updateHash: false });
+
+            window.addEventListener('hashchange', () => {
+                const id = (window.location.hash || '').replace('#', '');
+                if (ids.includes(id)) select(id, { updateHash: false });
+            });
+        })();
 
         // Galleries + lightbox
         (() => {

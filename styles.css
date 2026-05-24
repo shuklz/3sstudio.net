@@ -261,6 +261,11 @@ body {
     outline: none;
 }
 
+.hero-app.is-active {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(255, 69, 58, 0.35), 0 14px 30px -10px rgba(0, 0, 0, 0.7);
+}
+
 .hero-app img {
     width: 100%;
     height: 100%;
@@ -395,9 +400,64 @@ body {
     max-width: 700px;
 }
 
+.section-hint {
+    color: var(--text-muted);
+    font-size: 15px;
+    margin-top: 16px;
+    max-width: 700px;
+}
+
 /* ====== Apps section ====== */
 .apps-section {
     padding: 80px 0 120px;
+}
+
+/* App tab strip — chooses which app card is shown */
+.app-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.app-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 16px 8px 8px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--text-muted);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.app-tab img {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    object-fit: cover;
+    display: block;
+    flex-shrink: 0;
+}
+
+.app-tab:hover,
+.app-tab:focus-visible {
+    color: var(--text);
+    border-color: var(--border-strong);
+    transform: translateY(-1px);
+    outline: none;
+}
+
+.app-tab.is-active {
+    color: var(--text);
+    border-color: var(--accent);
+    background: rgba(255, 69, 58, 0.08);
+    box-shadow: 0 6px 20px -10px rgba(255, 69, 58, 0.6);
 }
 
 .apps-grid {
@@ -1098,6 +1158,19 @@ body {
 
     .hero-apps { gap: 16px; }
     .hero-app { width: 120px; height: 120px; border-radius: 28px; }
+
+    .app-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        margin-left: -24px;
+        margin-right: -24px;
+        padding: 4px 24px;
+        scrollbar-width: none;
+    }
+    .app-tabs::-webkit-scrollbar { display: none; }
+    .app-tab { scroll-snap-align: start; flex-shrink: 0; padding: 6px 14px 6px 6px; font-size: 13.5px; }
+    .app-tab img { width: 32px; height: 32px; border-radius: 8px; }
 
     .app-card { padding: 24px; }
 
