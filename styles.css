@@ -747,6 +747,25 @@ body {
     width: 100%;
 }
 
+.platform-label {
+    margin: 4px 0 14px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+}
+
+.app-gallery--watch {
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.app-gallery--watch .strip-item {
+    aspect-ratio: 410 / 502;
+}
+
 .app-gallery--strip .strip-item {
     flex: 1 1 0;
     min-width: 0;
