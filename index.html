@@ -46,7 +46,7 @@
 
     <header class="site-header">
         <div class="container header-inner">
-            <a href="#" class="logo">
+            <a href="#" class="logo" id="theme-cycle" title="Click to switch theme" aria-label="Switch theme">
                 <span class="logo-mark">3S</span>
                 <span class="logo-text">Studio</span>
             </a>
@@ -565,6 +565,20 @@
 
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Logo click cycles through themes (Ember -> Mint -> Solar -> Ember)
+        (() => {
+            const themes = ['ember', 'mint', 'solar'];
+            const logo = document.getElementById('theme-cycle');
+            if (!logo) return;
+            logo.addEventListener('click', (e) => {
+                e.preventDefault();
+                const current = document.documentElement.getAttribute('data-theme');
+                const next = themes[(themes.indexOf(current) + 1) % themes.length];
+                document.documentElement.setAttribute('data-theme', next);
+                try { sessionStorage.setItem('theme', next); } catch (_) {}
+            });
+        })();
 
         // App tabs — show only the selected app card
         (() => {

@@ -18,7 +18,7 @@ To ship a change: edit files → `git add … && git commit -m "…" && git push
 ## File layout
 
 - `index.html` — entire page (header, hero, apps, about, contact, footer, shared lightbox at the bottom of `<body>`)
-- `styles.css` — all styles, dark theme
+- `styles.css` — all styles; three dark theme variants (Ember/Mint/Solar) via `:root[data-theme=…]` blocks, see [Themes](#themes-per-visit-randomized)
 - `images/` — app icons + screenshots
 - `videos/` — demo videos served from Pages (lowercase folder name; URLs are case-sensitive on Pages even though macOS's filesystem is case-insensitive — if you need to rename a folder's case, do it via a two-step rename `mv X X_tmp && mv X_tmp x`)
 - `CNAME` — claims `3sstudio.net` for Pages, **don't delete**
@@ -116,10 +116,21 @@ Lightbox JS walks every `[data-gallery]`. For strip galleries it wires every `.s
 
 Heading "3S Studio" with three role cards (Finance Expert blue, Computer Science green, Research Scientist orange). Body intro is **generic studio copy** ("We build small, useful apps with care…"). An earlier draft had a PerFin-specific sentence — the user explicitly wanted that removed; do not re-introduce app-specific text in the About intro.
 
+## Themes (per-visit randomized)
+
+Three themes ship in `styles.css`: **Ember** (default — Apple-red accent, indigo secondary, Instrument Serif + Inter Tight), **Mint** (mint accent, lavender secondary, DM Serif Display + Space Grotesk, green-tinted dark bg), **Solar** (amber accent, hot-pink secondary, Fraunces + Manrope, warm-tinted dark bg).
+
+- **Selection**: an inline `<script>` at the top of `<head>` (before the stylesheet, so no flash) picks a random theme on first visit and persists it in `sessionStorage['theme']`. Stable while browsing, fresh on next visit.
+- **Apply**: `data-theme="ember|mint|solar"` set on `<html>`. Ember is the default `:root` block; Mint and Solar are `:root[data-theme="mint"]` / `:root[data-theme="solar"]` override blocks.
+- **Manual cycle**: clicking the `.logo` (`#theme-cycle`) advances Ember → Mint → Solar → Ember and writes through to `sessionStorage`. Bottom-of-`<body>` script wires this.
+- **Fonts**: all three pairs are loaded in one Google Fonts request; browsers only download the families actually referenced by the active theme.
+- **Adding a 4th theme**: extend the `themes` array in *both* inline scripts (head + bottom), add a `:root[data-theme="<name>"]` block in `styles.css` overriding `--bg`, `--bg-rgb`, `--bg-elevated`, `--bg-card`, `--accent`, `--accent-rgb`, `--accent-soft`, `--accent-2`, `--accent-2-rgb`, `--font-display`, `--font-body`, and append the new font families to the Google Fonts URL.
+- **What re-tints with the theme**: anywhere that uses `var(--accent)`, `var(--accent-2)`, `var(--bg)`, plus the few `rgba(var(--accent-rgb), …)` / `rgba(var(--bg-rgb), …)` sites (sticky header glass, active tab bg/glow, hero-app active ring, app-card hover overlay, feature-list bullet glow, placeholder gradients). Don't re-introduce raw `rgba(255, 69, 58, …)` literals or `#0a0a0c` literals — they break Mint/Solar. The favicon SVG is still hardcoded red; that's intentionally not themed.
+
 ## Conventions & gotchas
 
 - **No build step.** Don't introduce one — edit and push.
 - **Hero/meta language** says "Mac, iPhone, and Apple Watch" — keep that broad while a Mac app is present. iPad was dropped on 2026-05-24 (user call — even though Kaaldarshi and CalNotes still support iPad, the lineup is iPhone-led and the user wanted Apple Watch in the slot instead). Apple Watch was added the same day when Recall (A1) shipped wrist-dictation as a core capability; if Recall ever leaves the lineup, narrow the phrase back down.
 - **Apex was previously fronted by Cloudflare** (A → 172.66.0.70). Cutover happened on 2026-05-08; that older site is gone.
-- **CSS cache-busting**: `index.html` references `styles.css?v=N` (currently `v=9`, last bumped when the apps section moved to the tab-strip layout). Bump `N` whenever a CSS change risks hitting stale browser/Fastly caches — Pages' `cache-control: max-age=600` on the file means without a query bump, returning visitors can render unstyled HTML for up to 10 min.
+- **CSS cache-busting**: `index.html` references `styles.css?v=N` (currently `v=11`, last bumped when the per-visit theme system landed). Bump `N` whenever a CSS change risks hitting stale browser/Fastly caches — Pages' `cache-control: max-age=600` on the file means without a query bump, returning visitors can render unstyled HTML for up to 10 min.
 - **Don't run `git push --force`** or destructive ops without explicit OK — Pages serves whatever's at `main`.
