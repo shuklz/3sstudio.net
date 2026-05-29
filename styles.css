@@ -1,9 +1,13 @@
 /* ===========================================================
    3S Studio — Dark App Store-inspired theme
+   Themes: Ember (default), Mint, Solar. Picked per-visit by the
+   inline script in <head> and applied via [data-theme] on <html>.
    =========================================================== */
 
 :root {
+    /* === Ember (default) === */
     --bg: #0a0a0c;
+    --bg-rgb: 10, 10, 12;
     --bg-elevated: #131318;
     --bg-card: #17171c;
     --bg-card-hover: #1c1c22;
@@ -15,8 +19,10 @@
     --text-dim: #71717a;
 
     --accent: #ff453a;        /* Apple-ish red accent */
-    --accent-soft: #ff453a22;
+    --accent-rgb: 255, 69, 58;
+    --accent-soft: rgba(255, 69, 58, 0.13);
     --accent-2: #5e5ce6;      /* Indigo for variety */
+    --accent-2-rgb: 94, 92, 230;
 
     --radius-sm: 10px;
     --radius: 16px;
@@ -27,7 +33,43 @@
     --font-body: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
 
     --shadow-card: 0 1px 0 rgba(255,255,255,0.04) inset, 0 20px 40px -20px rgba(0,0,0,0.6);
-    --shadow-elevated: 0 20px 60px -20px rgba(255, 69, 58, 0.25);
+    --shadow-elevated: 0 20px 60px -20px rgba(var(--accent-rgb), 0.25);
+}
+
+/* === Mint: green-tinted dark, mint accent, lavender secondary === */
+:root[data-theme="mint"] {
+    --bg: #07100e;
+    --bg-rgb: 7, 16, 14;
+    --bg-elevated: #0e1a17;
+    --bg-card: #122119;
+    --bg-card-hover: #16291f;
+
+    --accent: #34d399;
+    --accent-rgb: 52, 211, 153;
+    --accent-soft: rgba(52, 211, 153, 0.13);
+    --accent-2: #818cf8;
+    --accent-2-rgb: 129, 140, 248;
+
+    --font-display: 'DM Serif Display', 'Times New Roman', serif;
+    --font-body: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* === Solar: warm dark, amber accent, hot-pink secondary === */
+:root[data-theme="solar"] {
+    --bg: #0d0907;
+    --bg-rgb: 13, 9, 7;
+    --bg-elevated: #1a1410;
+    --bg-card: #1f1812;
+    --bg-card-hover: #261d15;
+
+    --accent: #fbbf24;
+    --accent-rgb: 251, 191, 36;
+    --accent-soft: rgba(251, 191, 36, 0.13);
+    --accent-2: #f472b6;
+    --accent-2-rgb: 244, 114, 182;
+
+    --font-display: 'Fraunces', 'Times New Roman', serif;
+    --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -115,7 +157,7 @@ body {
     z-index: 50;
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
-    background: rgba(10, 10, 12, 0.7);
+    background: rgba(var(--bg-rgb), 0.7);
     border-bottom: 1px solid var(--border);
 }
 
@@ -263,7 +305,7 @@ body {
 
 .hero-app.is-active {
     border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(255, 69, 58, 0.35), 0 14px 30px -10px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.35), 0 14px 30px -10px rgba(0, 0, 0, 0.7);
 }
 
 .hero-app img {
@@ -456,8 +498,8 @@ body {
 .app-tab.is-active {
     color: var(--text);
     border-color: var(--accent);
-    background: rgba(255, 69, 58, 0.08);
-    box-shadow: 0 6px 20px -10px rgba(255, 69, 58, 0.6);
+    background: rgba(var(--accent-rgb), 0.08);
+    box-shadow: 0 6px 20px -10px rgba(var(--accent-rgb), 0.6);
 }
 
 .apps-grid {
@@ -482,7 +524,7 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(255,69,58,0.06) 0%, transparent 50%);
+    background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.06) 0%, transparent 50%);
     opacity: 0;
     transition: opacity 0.4s ease;
     pointer-events: none;
@@ -634,7 +676,7 @@ body {
     height: 8px;
     border-radius: 50%;
     background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    box-shadow: 0 0 0 3px rgba(255, 69, 58, 0.08);
+    box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.08);
 }
 
 .app-feature-list li strong {
@@ -693,8 +735,8 @@ body {
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(circle at 30% 20%, rgba(255,69,58,0.15) 0%, transparent 40%),
-        radial-gradient(circle at 70% 80%, rgba(94,92,230,0.15) 0%, transparent 40%);
+        radial-gradient(circle at 30% 20%, rgba(var(--accent-rgb), 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 70% 80%, rgba(var(--accent-2-rgb), 0.15) 0%, transparent 40%);
     pointer-events: none;
 }
 
@@ -716,7 +758,7 @@ body {
     max-width: 380px;
     aspect-ratio: 384 / 832;
     border-radius: 22px;
-    background: #0a0a0c;
+    background: var(--bg);
     border: 1px solid var(--border);
     display: block;
     box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.6);
@@ -772,7 +814,7 @@ body {
     aspect-ratio: 3 / 4;
     border-radius: 14px;
     overflow: hidden;
-    background: #0a0a0c;
+    background: var(--bg);
     border: 1px solid var(--border);
     cursor: zoom-in;
     padding: 0;
@@ -804,7 +846,7 @@ body {
     aspect-ratio: var(--gallery-aspect);
     border-radius: 14px;
     overflow: hidden;
-    background: #0a0a0c;
+    background: var(--bg);
     border: 1px solid var(--border);
     cursor: zoom-in;
     padding: 0;
@@ -884,7 +926,7 @@ body {
     scroll-snap-align: start;
     border-radius: 10px;
     overflow: hidden;
-    background: #0a0a0c;
+    background: var(--bg);
     border: 1px solid var(--border);
     cursor: pointer;
     padding: 0;
@@ -947,7 +989,7 @@ body {
     object-fit: contain;
     border-radius: 10px;
     box-shadow: 0 30px 100px rgba(0, 0, 0, 0.7);
-    background: #0a0a0c;
+    background: var(--bg);
 }
 
 .lightbox-caption {
