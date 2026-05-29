@@ -42,14 +42,14 @@ A card optionally includes a **rich feature list** between the description and t
 
 Current cards:
 
-- **A1 — Recall (iPhone + Apple Watch + macOS)**
+- **A1 — Recall (iPhone + Apple Watch + macOS)** — **LIVE on the App Store** as of 2026-05-29
+  - App Store: https://apps.apple.com/sg/app/recall-memory-keeper/id6773189421 (Singapore storefront URL; Apple's smart banner resolves to the user's local storefront, so this is fine to use as the canonical link)
   - Source app: `/Users/sanjay/Xcode/Recall` (has its own `CLAUDE.md` — read first when touching A1 copy). One Xcode project, three targets: `Recall` (macOS, source folder is `SanjayMemory/` — historical name, never surface "SanjayMemory" in marketing copy), `RecallMobile` (iOS), and `RecallWatch Watch App` (watchOS).
   - Icon: `images/app1-icon.png` (from `RecallMobile/Assets.xcassets/AppIcon.appiconset/Recall_icon_1024.png`)
   - 5 portrait (9:19.5) iPhone screenshots `app1-screen{1..5}.png`, copied directly from the originals (1125×2436, already smaller than StayCount's 1242×2688, no downscaling needed). Narrative order: Capture screen → Map view → Settings (Vault picker) → Settings (Siri hands-free) → About Recall. The four `WelcomeView` intro screens (`IMG_5790`–`5793`) were intentionally skipped — marketing-style intro art, not real UI.
   - Gallery uses `app-gallery--strip` with all 5 screenshots
   - Pitch: location-tagged voice/text/photo memory app. Memories are stored as plain Markdown files (YAML frontmatter, `{yyyyMMdd_HHmmss}.md`) in a user-chosen vault — works with Obsidian. Hands-free capture via Siri ("Hey Siri, save to Recall") and Apple Watch (queues offline). Multi-vault with iCloud sync between iPhone and Mac.
   - Feature list mirrors the iPhone `InfoView` (at the bottom of `RecallMobile/CaptureView.swift`) — keep them in sync when copy changes
-  - No App Privacy Policy gist yet — when one exists, look it up under the user's public Gists and add a `btn-link` row
 
 - **A2 — Kaaldarshi (macOS + iPad)**
   - Source app: `/Users/sanjay/Xcode/Kaaldarshi` — note the Xcode target folder is still called `VedicClock` (legacy name); product was renamed to **Kaaldarshi**, never surface "VedicClock" in marketing copy. The `WelcomeView` struct in `VedicClock/App/VedicClockApp.swift` is the canonical source of the feature list — copy edits should track that file.
@@ -80,7 +80,7 @@ Current cards:
   - Demo video at `videos/staycount-resident-demo.mp4` (~15MB, 384×832 portrait H.264, ~1:37) sits **above** the strip via the `.app-video` block — centred at 380px max width with the home screen as `poster`, controls visible, no autoplay. Pattern is reusable for other apps: drop the same `<div class="app-video"><video>…</video></div>` block above the gallery and update the `<source>` and `poster`. Keep new demo videos under ~25MB; for larger files switch to YouTube/Vimeo embeds rather than bloating the repo.
   - Pitch: scan boarding-pass barcodes (camera or Apple Wallet share) → per-country day counts for tax-residency compliance, with PDF export and on-device-only processing
 
-A1–A4 are still pre-launch — their App Store CTAs read **"Coming to the App Store"** with `href="#"`. **When an app ships**, swap the CTA to the live App Store URL and change the button copy to **"Download on the App Store"** (or "Download on the Mac App Store" if it's a Mac-only build, matching the existing A3 placeholder copy). Add `target="_blank" rel="noopener"` so it opens in a new tab. A5 is the live reference implementation today.
+A2–A4 are still pre-launch — their App Store CTAs read **"Coming to the App Store"** with `href="#"`. **When an app ships**, swap the CTA to the live App Store URL and change the button copy to **"Download on the App Store"** (or "Download on the Mac App Store" if it's a Mac-only build, matching the existing A3 placeholder copy). Add `target="_blank" rel="noopener"` so it opens in a new tab. A1 (Recall) and A5 (StayCount Resident) are the live reference implementations today.
 
 Each app card's actions row also takes an optional **"App Privacy Policy"** link rendered with `class="btn btn-link"` (subtle underlined text, no pill). Point it at the public Gist for that app — never at the private Xcode source repo. Recall (A1) uses gist `8bce22fd9e0ae9e4a430958221d818da`; World Explorer (A3) uses gist `ad7f425edacd13e8068c0dfacab7f382`; StayCount Resident (A5) uses gist `aac973f3127997b60223fb9714659379`. Kaaldarshi / CalNotes / RSS Reader / PerFinMac don't have policies yet — when they do, look them up in the user's public Gists (`https://api.github.com/users/shuklz/gists`) before wiring the link.
 
