@@ -139,7 +139,7 @@ Three themes ship in `styles.css`: **Ember** (default — Apple-red accent, indi
 ## Conventions & gotchas
 
 - **No build step.** Don't introduce one — edit and push.
-- **Hero/meta language** says "Mac, iPhone, and Apple Watch" — keep that broad while a Mac app is present. iPad was dropped on 2026-05-24 (user call — even though Kaaldarshi and CalNotes still support iPad, the lineup is iPhone-led and the user wanted Apple Watch in the slot instead). Apple Watch was added the same day when Recall (now A2) shipped wrist-dictation as a core capability; if Recall ever leaves the lineup, narrow the phrase back down.
+- **Hero/meta language** says "Mac, iPhone, iPad, and Apple Watch" — keep that broad while a Mac app is present. iPad was briefly dropped on 2026-05-24 and re-added on 2026-06-02 (user wanted it back so Kaaldarshi and CalNotes are represented in the lineup phrasing). Apple Watch was added on 2026-05-24 when Recall (now A2) shipped wrist-dictation as a core capability; if Recall ever leaves the lineup, narrow the phrase back down.
 - **Apex was previously fronted by Cloudflare** (A → 172.66.0.70). Cutover happened on 2026-05-08; that older site is gone.
 - **CSS cache-busting**: `index.html` references `styles.css?v=N` (currently `v=13`, last bumped on 2026-06-02 when the hero-icon row was scaled down ~35%). Bump `N` whenever a CSS change risks hitting stale browser/Fastly caches — Pages' `cache-control: max-age=600` on the file means without a query bump, returning visitors can render unstyled HTML for up to 10 min.
 - **Don't run `git push --force`** or destructive ops without explicit OK — Pages serves whatever's at `main`.
