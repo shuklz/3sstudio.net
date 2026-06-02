@@ -34,7 +34,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="styles.css?v=11">
+    <link rel="stylesheet" href="styles.css?v=12">
 </head>
 <body>
     <!-- Ambient background effects -->
@@ -75,11 +75,12 @@
                     <a href="#about" class="btn btn-ghost">Our story →</a>
                 </div>
                 <ul class="hero-apps" aria-label="Featured apps">
-                    <li><a href="#app-recall" class="hero-app" data-app-tab="app-recall" aria-label="Recall"><img src="images/app1-icon.png" alt="" width="180" height="180" loading="lazy"></a></li>
-                    <li><a href="#app-kaaldarshi" class="hero-app" data-app-tab="app-kaaldarshi" aria-label="Kaaldarshi"><img src="images/app2-icon.png" alt="" width="180" height="180" loading="lazy"></a></li>
-                    <li><a href="#app-world-explorer" class="hero-app" data-app-tab="app-world-explorer" aria-label="World Explorer for Minecraft"><img src="images/app3-icon.png" alt="" width="180" height="180" loading="lazy"></a></li>
-                    <li><a href="#app-calnotes" class="hero-app" data-app-tab="app-calnotes" aria-label="CalNotes"><img src="images/app4-icon.png" alt="" width="180" height="180" loading="lazy"></a></li>
-                    <li><a href="#app-staycount" class="hero-app" data-app-tab="app-staycount" aria-label="StayCount Resident"><img src="images/app5-icon.png" alt="" width="180" height="180" loading="lazy"></a></li>
+                    <li><a href="#app-watchcircle" class="hero-app" data-app-tab="app-watchcircle" aria-label="WatchCircle"><img src="images/app1-icon.png" alt="" width="180" height="180" loading="lazy"></a></li>
+                    <li><a href="#app-recall" class="hero-app" data-app-tab="app-recall" aria-label="Recall"><img src="images/app2-icon.png" alt="" width="180" height="180" loading="lazy"></a></li>
+                    <li><a href="#app-staycount" class="hero-app" data-app-tab="app-staycount" aria-label="StayCount Resident"><img src="images/app3-icon.png" alt="" width="180" height="180" loading="lazy"></a></li>
+                    <li><a href="#app-kaaldarshi" class="hero-app" data-app-tab="app-kaaldarshi" aria-label="Kaaldarshi"><img src="images/app4-icon.png" alt="" width="180" height="180" loading="lazy"></a></li>
+                    <li><a href="#app-world-explorer" class="hero-app" data-app-tab="app-world-explorer" aria-label="World Explorer for Minecraft"><img src="images/app5-icon.png" alt="" width="180" height="180" loading="lazy"></a></li>
+                    <li><a href="#app-calnotes" class="hero-app" data-app-tab="app-calnotes" aria-label="CalNotes"><img src="images/app6-icon.png" alt="" width="180" height="180" loading="lazy"></a></li>
                 </ul>
             </div>
         </section>
@@ -94,35 +95,109 @@
                 </div>
 
                 <div class="app-tabs" role="tablist" aria-label="Select an app">
-                    <button class="app-tab is-active" type="button" role="tab" aria-selected="true" data-app-tab="app-recall">
+                    <button class="app-tab is-active" type="button" role="tab" aria-selected="true" data-app-tab="app-watchcircle">
                         <img src="images/app1-icon.png" alt="" width="56" height="56" loading="lazy">
+                        <span>WatchCircle</span>
+                    </button>
+                    <button class="app-tab" type="button" role="tab" aria-selected="false" data-app-tab="app-recall">
+                        <img src="images/app2-icon.png" alt="" width="56" height="56" loading="lazy">
                         <span>Recall</span>
                     </button>
+                    <button class="app-tab" type="button" role="tab" aria-selected="false" data-app-tab="app-staycount">
+                        <img src="images/app3-icon.png" alt="" width="56" height="56" loading="lazy">
+                        <span>StayCount Resident</span>
+                    </button>
                     <button class="app-tab" type="button" role="tab" aria-selected="false" data-app-tab="app-kaaldarshi">
-                        <img src="images/app2-icon.png" alt="" width="56" height="56" loading="lazy">
+                        <img src="images/app4-icon.png" alt="" width="56" height="56" loading="lazy">
                         <span>Kaaldarshi</span>
                     </button>
                     <button class="app-tab" type="button" role="tab" aria-selected="false" data-app-tab="app-world-explorer">
-                        <img src="images/app3-icon.png" alt="" width="56" height="56" loading="lazy">
+                        <img src="images/app5-icon.png" alt="" width="56" height="56" loading="lazy">
                         <span>World Explorer</span>
                     </button>
                     <button class="app-tab" type="button" role="tab" aria-selected="false" data-app-tab="app-calnotes">
-                        <img src="images/app4-icon.png" alt="" width="56" height="56" loading="lazy">
+                        <img src="images/app6-icon.png" alt="" width="56" height="56" loading="lazy">
                         <span>CalNotes</span>
-                    </button>
-                    <button class="app-tab" type="button" role="tab" aria-selected="false" data-app-tab="app-staycount">
-                        <img src="images/app5-icon.png" alt="" width="56" height="56" loading="lazy">
-                        <span>StayCount Resident</span>
                     </button>
                 </div>
 
                 <div class="apps-grid">
 
-                    <!-- APP CARD 1 — Recall -->
-                    <article class="app-card" id="app-recall">
+                    <!-- APP CARD 1 — WatchCircle -->
+                    <article class="app-card" id="app-watchcircle">
                         <div class="app-card-header">
                             <div class="app-icon">
-                                <img src="images/app1-icon.png" alt="Recall icon" onerror="this.style.display='none'; this.parentElement.classList.add('placeholder');">
+                                <img src="images/app1-icon.png" alt="WatchCircle icon" onerror="this.style.display='none'; this.parentElement.classList.add('placeholder');">
+                                <span class="icon-fallback">WC</span>
+                            </div>
+                            <div class="app-card-meta">
+                                <h3 class="app-name">WatchCircle</h3>
+                                <p class="app-tagline">Your watched diary — shared only with the friends you trust.</p>
+                                <div class="app-badges">
+                                    <span class="badge">Entertainment</span>
+                                    <span class="badge">iPhone</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="app-description">
+                            WatchCircle is a personal diary of every movie, show, and documentary you watch — logged with date, where you watched it (flight, Netflix, cinema, Apple TV, anywhere), an honest verdict, and a short note. Invite a few friends over iMessage and you each see the other&rsquo;s lists side-by-side. Posters and metadata are looked up automatically. Everything lives in your own iCloud — no accounts, no third-party services, no tracking.
+                        </p>
+
+                        <div class="app-features">
+                            <h4 class="app-features-title">What WatchCircle does</h4>
+                            <ul class="app-feature-list">
+                                <li><strong>Watched diary</strong><span>Log every movie, show, or documentary with date, platform, rating, and notes.</span></li>
+                                <li><strong>Smart title lookup</strong><span>Searches TMDb and Apple iTunes for posters, release year, and movie/TV kind.</span></li>
+                                <li><strong>Custom posters</strong><span>Upload your own image for hand-entered titles or anything the search can&rsquo;t find.</span></li>
+                                <li><strong>Watch links</strong><span>Save a link back to where you watched it and tap to reopen anytime.</span></li>
+                                <li><strong>Honest ratings</strong><span>Three clear verdicts — Recommended, Time-Pass, Waste of Time — built for real signal, not noise.</span></li>
+                                <li><strong>Watchlist</strong><span>Save titles to watch later; one tap flips a watchlist item to Watched.</span></li>
+                                <li><strong>Search &amp; sort</strong><span>Find anything by title; sort by date, rating, or platform.</span></li>
+                                <li><strong>Friend sharing</strong><span>Invite friends via iMessage or Mail. See each other&rsquo;s watched lists and ratings.</span></li>
+                                <li><strong>Friend-item status</strong><span>Each friend&rsquo;s title shows whether it&rsquo;s already in your Watched or on your Watchlist.</span></li>
+                                <li><strong>Add from friends</strong><span>One tap to add a friend&rsquo;s recommendation straight to your own watchlist.</span></li>
+                                <li><strong>Shared notes</strong><span>Your note and your friends&rsquo; notes on the same title, side-by-side and name-tagged.</span></li>
+                                <li><strong>Remove friend</strong><span>Cleanly sever sharing in both directions when you&rsquo;re done.</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="app-gallery app-gallery--strip" data-gallery>
+                            <div class="gallery-strip" role="list">
+                                <button class="strip-item" type="button" role="listitem" aria-label="Open screenshot in fullscreen viewer">
+                                    <img src="images/app1-screen1.png" alt="WatchCircle Watched tab — list of watched titles with posters, where watched (Other, Apple TV), date, and a colored verdict chip for each (Rec, Waste, Time-Pass)">
+                                </button>
+                                <button class="strip-item" type="button" role="listitem" aria-label="Open screenshot in fullscreen viewer">
+                                    <img src="images/app1-screen2.png" alt="WatchCircle Watchlist tab — saved titles to watch later (The Odyssey, Send Help, The Super Mario Galaxy Movie) with posters, kind, and release year">
+                                </button>
+                                <button class="strip-item" type="button" role="listitem" aria-label="Open screenshot in fullscreen viewer">
+                                    <img src="images/app1-screen3.png" alt="WatchCircle Friends tab — a friend&rsquo;s grouped list with their verdicts plus tags showing whether each title is already in your Watched or available to add to your Watchlist">
+                                </button>
+                                <button class="strip-item" type="button" role="listitem" aria-label="Open screenshot in fullscreen viewer">
+                                    <img src="images/app1-screen4.png" alt="WatchCircle Settings — your display name, the friend-activity notifications toggle, and a Light / Dark / System appearance picker">
+                                </button>
+                                <button class="strip-item" type="button" role="listitem" aria-label="Open screenshot in fullscreen viewer">
+                                    <img src="images/app1-screen5.png" alt="WatchCircle About screen — Version and the in-app feature list (Watched diary, Smart title lookup, Custom posters, Watch links, Honest ratings)">
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="app-actions">
+                            <a href="#" class="btn btn-app-store">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+                                Coming to the App Store
+                            </a>
+                            <a href="#" class="btn btn-secondary">Learn more</a>
+                            <a href="https://gist.github.com/shuklz/d6656c7869adaf2d2d2f1c1072059f49" class="btn btn-link" target="_blank" rel="noopener">App Privacy Policy</a>
+                            <a href="mailto:appsupport@3sstudio.net?subject=App%20Support%3A%20WatchCircle" class="btn btn-link">App Support</a>
+                        </div>
+                    </article>
+
+                    <!-- APP CARD 2 — Recall -->
+                    <article class="app-card" id="app-recall" hidden>
+                        <div class="app-card-header">
+                            <div class="app-icon">
+                                <img src="images/app2-icon.png" alt="Recall icon" onerror="this.style.display='none'; this.parentElement.classList.add('placeholder');">
                                 <span class="icon-fallback">R</span>
                             </div>
                             <div class="app-card-meta">
@@ -160,19 +235,19 @@
                         <div class="app-gallery app-gallery--strip" data-gallery>
                             <div class="gallery-strip" role="list">
                                 <button class="strip-item" type="button" role="listitem" aria-label="Open screenshot in fullscreen viewer">
-                                    <img src="images/app1-screen1.png" alt="Recall capture screen — Speak, Camera, and Photos buttons with current location and the active vault (SanjayMemory, 42 memories)">
+                                    <img src="images/app2-screen1.png" alt="Recall capture screen — Speak, Camera, and Photos buttons with current location and the active vault (SanjayMemory, 42 memories)">
                                 </button>
                                 <button class="strip-item" type="button" role="listitem" aria-label="Open screenshot in fullscreen viewer">
-                                    <img src="images/app1-screen2.png" alt="Map view — 38 memory pins plotted across Singapore with the active vault badge">
+                                    <img src="images/app2-screen2.png" alt="Map view — 38 memory pins plotted across Singapore with the active vault badge">
                                 </button>
                                 <button class="strip-item" type="button" role="listitem" aria-label="Open screenshot in fullscreen viewer">
-                                    <img src="images/app1-screen3.png" alt="Settings — vault picker with the current vault, linked Mac vaults, and a Create New Vault row">
+                                    <img src="images/app2-screen3.png" alt="Settings — vault picker with the current vault, linked Mac vaults, and a Create New Vault row">
                                 </button>
                                 <button class="strip-item" type="button" role="listitem" aria-label="Open screenshot in fullscreen viewer">
-                                    <img src="images/app1-screen4.png" alt="Settings — Siri hands-free phrases including &ldquo;Hey Siri, save to Recall&rdquo; and inline vault override">
+                                    <img src="images/app2-screen4.png" alt="Settings — Siri hands-free phrases including &ldquo;Hey Siri, save to Recall&rdquo; and inline vault override">
                                 </button>
                                 <button class="strip-item" type="button" role="listitem" aria-label="Open screenshot in fullscreen viewer">
-                                    <img src="images/app1-screen5.png" alt="About Recall — feature list covering voice/photo capture, map, multi-vault, iCloud sync, Apple Watch, Siri, and Markdown storage">
+                                    <img src="images/app2-screen5.png" alt="About Recall — feature list covering voice/photo capture, map, multi-vault, iCloud sync, Apple Watch, Siri, and Markdown storage">
                                 </button>
                             </div>
                         </div>
@@ -180,7 +255,7 @@
                         <h4 class="platform-label">On Mac</h4>
                         <div class="app-gallery" data-gallery style="--gallery-aspect: 13 / 9;">
                             <button class="gallery-main" type="button" aria-label="Open screenshot in fullscreen viewer">
-                                <img src="images/app1-mac1.png" alt="Recall on Mac — main window with sidebar of memories, search field, and the active vault badge">
+                                <img src="images/app2-mac1.png" alt="Recall on Mac — main window with sidebar of memories, search field, and the active vault badge">
                                 <span class="gallery-zoom-hint" aria-hidden="true">
                                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg>
                                     Click to enlarge
@@ -188,13 +263,13 @@
                             </button>
                             <div class="gallery-thumbs" role="tablist" aria-label="Mac screenshots">
                                 <button class="thumb is-active" type="button" role="tab" aria-selected="true" data-idx="0">
-                                    <img src="images/app1-mac1.png" alt="Recall on Mac — main window with sidebar of memories, search field, and the active vault badge" loading="lazy">
+                                    <img src="images/app2-mac1.png" alt="Recall on Mac — main window with sidebar of memories, search field, and the active vault badge" loading="lazy">
                                 </button>
                                 <button class="thumb" type="button" role="tab" aria-selected="false" data-idx="1">
-                                    <img src="images/app1-mac2.png" alt="Recall on Mac — Q&amp;A search answering a typed question with the matching memory excerpt" loading="lazy">
+                                    <img src="images/app2-mac2.png" alt="Recall on Mac — Q&amp;A search answering a typed question with the matching memory excerpt" loading="lazy">
                                 </button>
                                 <button class="thumb" type="button" role="tab" aria-selected="false" data-idx="2">
-                                    <img src="images/app1-mac3.png" alt="Recall on Mac — menu bar quick-capture popover for jotting a memory without leaving the current app" loading="lazy">
+                                    <img src="images/app2-mac3.png" alt="Recall on Mac — menu bar quick-capture popover for jotting a memory without leaving the current app" loading="lazy">
                                 </button>
                             </div>
                         </div>
@@ -203,10 +278,10 @@
                         <div class="app-gallery app-gallery--strip app-gallery--watch" data-gallery>
                             <div class="gallery-strip" role="list">
                                 <button class="strip-item" type="button" role="listitem" aria-label="Open screenshot in fullscreen viewer">
-                                    <img src="images/app1-watch1.png" alt="Recall on Apple Watch — capture screen with dictation button and active vault name">
+                                    <img src="images/app2-watch1.png" alt="Recall on Apple Watch — capture screen with dictation button and active vault name">
                                 </button>
                                 <button class="strip-item" type="button" role="listitem" aria-label="Open screenshot in fullscreen viewer">
-                                    <img src="images/app1-watch2.png" alt="Recall on Apple Watch — recent memories list mirrored from iPhone">
+                                    <img src="images/app2-watch2.png" alt="Recall on Apple Watch — recent memories list mirrored from iPhone">
                                 </button>
                             </div>
                         </div>
@@ -222,11 +297,67 @@
                         </div>
                     </article>
 
-                    <!-- APP CARD 2 — Kaaldarshi -->
+                    <!-- APP CARD 3 — StayCount Resident -->
+                    <article class="app-card" id="app-staycount" hidden>
+                        <div class="app-card-header">
+                            <div class="app-icon">
+                                <img src="images/app3-icon.png" alt="StayCount Resident icon" onerror="this.style.display='none'; this.parentElement.classList.add('placeholder');">
+                                <span class="icon-fallback">SC</span>
+                            </div>
+                            <div class="app-card-meta">
+                                <h3 class="app-name">StayCount Resident</h3>
+                                <p class="app-tagline">Your stays, counted from your boarding passes.</p>
+                                <div class="app-badges">
+                                    <span class="badge">Travel</span>
+                                    <span class="badge">iPhone</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="app-description">
+                            StayCount Resident turns your boarding passes into a per-country day count for tax-residency compliance. Scan the PDF417 barcode with the camera, or share a pass straight from Apple Wallet — StayCount Resident reads the IATA BCBP data, infers the route, and adds the trip to the right stay. Set your residence country and tax-year start (Jan 1, Apr 6 UK, Jul 1 AU presets), then export a chronological PDF report whenever you need to show your work. All on-device.
+                        </p>
+
+                        <div class="app-video">
+                            <video controls playsinline preload="metadata" poster="images/app3-screen1.png" aria-label="StayCount Resident demo video">
+                                <source src="videos/staycount-resident-demo.mp4" type="video/mp4">
+                                Your browser doesn't support embedded video.
+                            </video>
+                        </div>
+
+                        <div class="app-gallery app-gallery--strip" data-gallery>
+                            <div class="gallery-strip" role="list">
+                                <button class="strip-item" type="button" role="listitem" aria-label="Open screenshot in fullscreen viewer">
+                                    <img src="images/app3-screen1.png" alt="Home screen — country list with day counts and 130 days tracked across 3 logged flights">
+                                </button>
+                                <button class="strip-item" type="button" role="listitem" aria-label="Open screenshot in fullscreen viewer">
+                                    <img src="images/app3-screen2.png" alt="Timeline — non-overlapping stay segments with day counts and a sum-vs-elapsed reconciliation">
+                                </button>
+                                <button class="strip-item" type="button" role="listitem" aria-label="Open screenshot in fullscreen viewer">
+                                    <img src="images/app3-screen3.png" alt="StayCount Resident PDF report — period header, country totals, and chronological timeline of stays and flights">
+                                </button>
+                                <button class="strip-item" type="button" role="listitem" aria-label="Open screenshot in fullscreen viewer">
+                                    <img src="images/app3-screen4.png" alt="About screen — tax-compliance positioning and feature list (data entry, tax period, multi-period, country dashboard)">
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="app-actions">
+                            <a href="https://apps.apple.com/sg/app/staycount-resident/id6767968960" class="btn btn-app-store" target="_blank" rel="noopener">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+                                Download on the App Store
+                            </a>
+                            <a href="#" class="btn btn-secondary">Learn more</a>
+                            <a href="https://gist.github.com/shuklz/aac973f3127997b60223fb9714659379" class="btn btn-link" target="_blank" rel="noopener">App Privacy Policy</a>
+                            <a href="mailto:appsupport@3sstudio.net?subject=App%20Support%3A%20StayCount%20Resident" class="btn btn-link">App Support</a>
+                        </div>
+                    </article>
+
+                    <!-- APP CARD 4 — Kaaldarshi -->
                     <article class="app-card" id="app-kaaldarshi" hidden>
                         <div class="app-card-header">
                             <div class="app-icon">
-                                <img src="images/app2-icon.png" alt="Kaaldarshi icon" onerror="this.style.display='none'; this.parentElement.classList.add('placeholder');">
+                                <img src="images/app4-icon.png" alt="Kaaldarshi icon" onerror="this.style.display='none'; this.parentElement.classList.add('placeholder');">
                                 <span class="icon-fallback">KD</span>
                             </div>
                             <div class="app-card-meta">
@@ -266,7 +397,7 @@
 
                         <div class="app-gallery" data-gallery style="--gallery-aspect: 5 / 4;">
                             <button class="gallery-main" type="button" aria-label="Open screenshot in fullscreen viewer">
-                                <img src="images/app2-screen1.png" alt="Kaaldarshi welcome screen — sidebar with Family, Friends, Client and Others profile folders, and the in-app feature list">
+                                <img src="images/app4-screen1.png" alt="Kaaldarshi welcome screen — sidebar with Family, Friends, Client and Others profile folders, and the in-app feature list">
                                 <span class="gallery-zoom-hint" aria-hidden="true">
                                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg>
                                     Click to enlarge
@@ -274,31 +405,31 @@
                             </button>
                             <div class="gallery-thumbs" role="tablist" aria-label="Screenshots">
                                 <button class="thumb is-active" type="button" role="tab" aria-selected="true" data-idx="0">
-                                    <img src="images/app2-screen1.png" alt="Kaaldarshi welcome screen — sidebar with Family, Friends, Client and Others profile folders, and the in-app feature list" loading="lazy">
+                                    <img src="images/app4-screen1.png" alt="Kaaldarshi welcome screen — sidebar with Family, Friends, Client and Others profile folders, and the in-app feature list" loading="lazy">
                                 </button>
                                 <button class="thumb" type="button" role="tab" aria-selected="false" data-idx="1">
-                                    <img src="images/app2-screen2.png" alt="Main dashboard — live Panchang panel, 4-level Vimshottari Dasha cards, Mahadasha timeline, and 7-day forecast" loading="lazy">
+                                    <img src="images/app4-screen2.png" alt="Main dashboard — live Panchang panel, 4-level Vimshottari Dasha cards, Mahadasha timeline, and 7-day forecast" loading="lazy">
                                 </button>
                                 <button class="thumb" type="button" role="tab" aria-selected="false" data-idx="2">
-                                    <img src="images/app2-screen3.png" alt="Lagna and Chandra D1 charts — North Indian diamond charts side-by-side with planetary legend" loading="lazy">
+                                    <img src="images/app4-screen3.png" alt="Lagna and Chandra D1 charts — North Indian diamond charts side-by-side with planetary legend" loading="lazy">
                                 </button>
                                 <button class="thumb" type="button" role="tab" aria-selected="false" data-idx="3">
-                                    <img src="images/app2-screen4.png" alt="Profile card popup — Western, Vedic Nakshatra, and Chinese zodiac signs with core personality summary" loading="lazy">
+                                    <img src="images/app4-screen4.png" alt="Profile card popup — Western, Vedic Nakshatra, and Chinese zodiac signs with core personality summary" loading="lazy">
                                 </button>
                                 <button class="thumb" type="button" role="tab" aria-selected="false" data-idx="4">
-                                    <img src="images/app2-screen5.png" alt="Rahu Mahadasha detail — classical interpretation, placement, dignity, strength and favourable vs challenging themes" loading="lazy">
+                                    <img src="images/app4-screen5.png" alt="Rahu Mahadasha detail — classical interpretation, placement, dignity, strength and favourable vs challenging themes" loading="lazy">
                                 </button>
                                 <button class="thumb" type="button" role="tab" aria-selected="false" data-idx="5">
-                                    <img src="images/app2-screen6.png" alt="Manglik Status popup — Mars placement from Lagna, Moon and Venus with effect and assessment" loading="lazy">
+                                    <img src="images/app4-screen6.png" alt="Manglik Status popup — Mars placement from Lagna, Moon and Venus with effect and assessment" loading="lazy">
                                 </button>
                                 <button class="thumb" type="button" role="tab" aria-selected="false" data-idx="6">
-                                    <img src="images/app2-screen7.png" alt="Sade Sati Cycles — lifetime table of past, current and future Saturn cycles with phase, intensity, duration and status" loading="lazy">
+                                    <img src="images/app4-screen7.png" alt="Sade Sati Cycles — lifetime table of past, current and future Saturn cycles with phase, intensity, duration and status" loading="lazy">
                                 </button>
                                 <button class="thumb" type="button" role="tab" aria-selected="false" data-idx="7">
-                                    <img src="images/app2-screen8.png" alt="Full Kundli PDF cover — bilingual जन्म कुंडली title with Ganesh artwork, English / Hindi / both language toggle" loading="lazy">
+                                    <img src="images/app4-screen8.png" alt="Full Kundli PDF cover — bilingual जन्म कुंडली title with Ganesh artwork, English / Hindi / both language toggle" loading="lazy">
                                 </button>
                                 <button class="thumb" type="button" role="tab" aria-selected="false" data-idx="8">
-                                    <img src="images/app2-screen9.png" alt="Birth Chart Summary popup — Core Personality, Key Strengths and Growth Areas blended from natal chart" loading="lazy">
+                                    <img src="images/app4-screen9.png" alt="Birth Chart Summary popup — Core Personality, Key Strengths and Growth Areas blended from natal chart" loading="lazy">
                                 </button>
                             </div>
                         </div>
@@ -313,11 +444,11 @@
                         </div>
                     </article>
 
-                    <!-- APP CARD 3 — World Explorer for Minecraft -->
+                    <!-- APP CARD 5 — World Explorer for Minecraft -->
                     <article class="app-card" id="app-world-explorer" hidden>
                         <div class="app-card-header">
                             <div class="app-icon">
-                                <img src="images/app3-icon.png" alt="World Explorer for Minecraft icon" onerror="this.style.display='none'; this.parentElement.classList.add('placeholder');">
+                                <img src="images/app5-icon.png" alt="World Explorer for Minecraft icon" onerror="this.style.display='none'; this.parentElement.classList.add('placeholder');">
                                 <span class="icon-fallback">WE</span>
                             </div>
                             <div class="app-card-meta">
@@ -336,7 +467,7 @@
 
                         <div class="app-gallery" data-gallery>
                             <button class="gallery-main" type="button" aria-label="Open screenshot in fullscreen viewer">
-                                <img src="images/app3-screen1.png" alt="Multi-dimension biome map of the Overworld, Nether, and End">
+                                <img src="images/app5-screen1.png" alt="Multi-dimension biome map of the Overworld, Nether, and End">
                                 <span class="gallery-zoom-hint" aria-hidden="true">
                                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg>
                                     Click to enlarge
@@ -344,25 +475,25 @@
                             </button>
                             <div class="gallery-thumbs" role="tablist" aria-label="Screenshots">
                                 <button class="thumb is-active" type="button" role="tab" aria-selected="true" data-idx="0">
-                                    <img src="images/app3-screen1.png" alt="Multi-dimension biome map of the Overworld, Nether, and End">
+                                    <img src="images/app5-screen1.png" alt="Multi-dimension biome map of the Overworld, Nether, and End">
                                 </button>
                                 <button class="thumb" type="button" role="tab" aria-selected="false" data-idx="1">
-                                    <img src="images/app3-screen2.png" alt="World Snapshot — maturity score, snapshot stats, and player roster">
+                                    <img src="images/app5-screen2.png" alt="World Snapshot — maturity score, snapshot stats, and player roster">
                                 </button>
                                 <button class="thumb" type="button" role="tab" aria-selected="false" data-idx="2">
-                                    <img src="images/app3-screen3.png" alt="Progress tab — five-category advancement completion rings">
+                                    <img src="images/app5-screen3.png" alt="Progress tab — five-category advancement completion rings">
                                 </button>
                                 <button class="thumb" type="button" role="tab" aria-selected="false" data-idx="3">
-                                    <img src="images/app3-screen4.png" alt="Exploration tab — per-dimension regions, area, disk, and activity recency">
+                                    <img src="images/app5-screen4.png" alt="Exploration tab — per-dimension regions, area, disk, and activity recency">
                                 </button>
                                 <button class="thumb" type="button" role="tab" aria-selected="false" data-idx="4">
-                                    <img src="images/app3-screen5.png" alt="Players tab — per-player stats, inventory, and play-style classification">
+                                    <img src="images/app5-screen5.png" alt="Players tab — per-player stats, inventory, and play-style classification">
                                 </button>
                                 <button class="thumb" type="button" role="tab" aria-selected="false" data-idx="5">
-                                    <img src="images/app3-screen6.png" alt="Next Moves — strategy engine recommendations and warnings">
+                                    <img src="images/app5-screen6.png" alt="Next Moves — strategy engine recommendations and warnings">
                                 </button>
                                 <button class="thumb" type="button" role="tab" aria-selected="false" data-idx="6">
-                                    <img src="images/app3-screen7.png" alt="World tab — currently loaded world, local saves, and recent worlds">
+                                    <img src="images/app5-screen7.png" alt="World tab — currently loaded world, local saves, and recent worlds">
                                 </button>
                             </div>
                         </div>
@@ -378,11 +509,11 @@
                         </div>
                     </article>
 
-                    <!-- APP CARD 4 — CalNotes -->
+                    <!-- APP CARD 6 — CalNotes -->
                     <article class="app-card" id="app-calnotes" hidden>
                         <div class="app-card-header">
                             <div class="app-icon">
-                                <img src="images/app4-icon.png" alt="CalNotes icon" onerror="this.style.display='none'; this.parentElement.classList.add('placeholder');">
+                                <img src="images/app6-icon.png" alt="CalNotes icon" onerror="this.style.display='none'; this.parentElement.classList.add('placeholder');">
                                 <span class="icon-fallback">CN</span>
                             </div>
                             <div class="app-card-meta">
@@ -402,13 +533,13 @@
                         <div class="app-gallery app-gallery--strip" data-gallery>
                             <div class="gallery-strip" role="list">
                                 <button class="strip-item" type="button" role="listitem" aria-label="Open screenshot in fullscreen viewer">
-                                    <img src="images/app4-screen1.jpg" alt="Whiteboard with a waterfall photo background and template picker — Blank, Broad Ruled, Narrow Ruled, Grid, To-Do List, Photo">
+                                    <img src="images/app6-screen1.jpg" alt="Whiteboard with a waterfall photo background and template picker — Blank, Broad Ruled, Narrow Ruled, Grid, To-Do List, Photo">
                                 </button>
                                 <button class="strip-item" type="button" role="listitem" aria-label="Open screenshot in fullscreen viewer">
-                                    <img src="images/app4-screen2.jpg" alt="Calendar month view with a Personal notebook and full Apple Pencil tool palette">
+                                    <img src="images/app6-screen2.jpg" alt="Calendar month view with a Personal notebook and full Apple Pencil tool palette">
                                 </button>
                                 <button class="strip-item" type="button" role="listitem" aria-label="Open screenshot in fullscreen viewer">
-                                    <img src="images/app4-screen3.jpg" alt="Template picker — Blank, Broad Ruled, Narrow Ruled, Grid, To-Do, Photo — with paper background swatches">
+                                    <img src="images/app6-screen3.jpg" alt="Template picker — Blank, Broad Ruled, Narrow Ruled, Grid, To-Do, Photo — with paper background swatches">
                                 </button>
                             </div>
                         </div>
@@ -420,62 +551,6 @@
                             </a>
                             <a href="#" class="btn btn-secondary">Learn more</a>
                             <a href="mailto:appsupport@3sstudio.net?subject=App%20Support%3A%20CalNotes" class="btn btn-link">App Support</a>
-                        </div>
-                    </article>
-
-                    <!-- APP CARD 5 — StayCount Resident -->
-                    <article class="app-card" id="app-staycount" hidden>
-                        <div class="app-card-header">
-                            <div class="app-icon">
-                                <img src="images/app5-icon.png" alt="StayCount Resident icon" onerror="this.style.display='none'; this.parentElement.classList.add('placeholder');">
-                                <span class="icon-fallback">SC</span>
-                            </div>
-                            <div class="app-card-meta">
-                                <h3 class="app-name">StayCount Resident</h3>
-                                <p class="app-tagline">Your stays, counted from your boarding passes.</p>
-                                <div class="app-badges">
-                                    <span class="badge">Travel</span>
-                                    <span class="badge">iPhone</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <p class="app-description">
-                            StayCount Resident turns your boarding passes into a per-country day count for tax-residency compliance. Scan the PDF417 barcode with the camera, or share a pass straight from Apple Wallet — StayCount Resident reads the IATA BCBP data, infers the route, and adds the trip to the right stay. Set your residence country and tax-year start (Jan 1, Apr 6 UK, Jul 1 AU presets), then export a chronological PDF report whenever you need to show your work. All on-device.
-                        </p>
-
-                        <div class="app-video">
-                            <video controls playsinline preload="metadata" poster="images/app5-screen1.png" aria-label="StayCount Resident demo video">
-                                <source src="videos/staycount-resident-demo.mp4" type="video/mp4">
-                                Your browser doesn't support embedded video.
-                            </video>
-                        </div>
-
-                        <div class="app-gallery app-gallery--strip" data-gallery>
-                            <div class="gallery-strip" role="list">
-                                <button class="strip-item" type="button" role="listitem" aria-label="Open screenshot in fullscreen viewer">
-                                    <img src="images/app5-screen1.png" alt="Home screen — country list with day counts and 130 days tracked across 3 logged flights">
-                                </button>
-                                <button class="strip-item" type="button" role="listitem" aria-label="Open screenshot in fullscreen viewer">
-                                    <img src="images/app5-screen2.png" alt="Timeline — non-overlapping stay segments with day counts and a sum-vs-elapsed reconciliation">
-                                </button>
-                                <button class="strip-item" type="button" role="listitem" aria-label="Open screenshot in fullscreen viewer">
-                                    <img src="images/app5-screen3.png" alt="StayCount Resident PDF report — period header, country totals, and chronological timeline of stays and flights">
-                                </button>
-                                <button class="strip-item" type="button" role="listitem" aria-label="Open screenshot in fullscreen viewer">
-                                    <img src="images/app5-screen4.png" alt="About screen — tax-compliance positioning and feature list (data entry, tax period, multi-period, country dashboard)">
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="app-actions">
-                            <a href="https://apps.apple.com/sg/app/staycount-resident/id6767968960" class="btn btn-app-store" target="_blank" rel="noopener">
-                                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
-                                Download on the App Store
-                            </a>
-                            <a href="#" class="btn btn-secondary">Learn more</a>
-                            <a href="https://gist.github.com/shuklz/aac973f3127997b60223fb9714659379" class="btn btn-link" target="_blank" rel="noopener">App Privacy Policy</a>
-                            <a href="mailto:appsupport@3sstudio.net?subject=App%20Support%3A%20StayCount%20Resident" class="btn btn-link">App Support</a>
                         </div>
                     </article>
 
