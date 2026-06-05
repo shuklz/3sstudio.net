@@ -51,8 +51,9 @@ Current cards:
   - Feature list mirrors the in-app `AboutView` — keep them in sync when copy changes
   - App Privacy Policy gist: `d6656c7869adaf2d2d2f1c1072059f49`
 
-- **A2 — Recall (iPhone + Apple Watch + macOS)** — **LIVE on the App Store** as of 2026-05-29
-  - App Store: https://apps.apple.com/sg/app/recall-memory-keeper/id6773189421 (Singapore storefront URL; Apple's smart banner resolves to the user's local storefront, so this is fine to use as the canonical link)
+- **A2 — Recall (iPhone + Apple Watch + macOS)** — **LIVE on both the iOS App Store** (as of 2026-05-29) **and the Mac App Store** (as of 2026-06-06)
+  - iOS App Store: https://apps.apple.com/sg/app/recall-memory-keeper/id6773189421 ("Recall — Memory Keeper"; Singapore storefront URL; Apple's smart banner resolves to the user's local storefront, so this is fine to use as the canonical link)
+  - Mac App Store: https://apps.apple.com/sg/app/recall-memory-vault/id6773192873?mt=12 ("Recall — Memory Vault"; note the `?mt=12` Mac-storefront suffix and the separate app ID — it's a distinct listing from the iOS one). The card carries **two** App Store buttons: "Download on the Mac App Store" (left) then "Download on the App Store" (iOS, right), both `btn btn-app-store`.
   - Source app: `/Users/sanjay/Xcode/Recall` (has its own `CLAUDE.md` — read first when touching A2 copy). One Xcode project, three targets: `Recall` (macOS, source folder is `SanjayMemory/` — historical name, never surface "SanjayMemory" in marketing copy), `RecallMobile` (iOS), and `RecallWatch Watch App` (watchOS).
   - Icon: `images/app2-icon.png` (from `RecallMobile/Assets.xcassets/AppIcon.appiconset/Recall_icon_1024.png`)
   - 5 portrait (9:19.5) iPhone screenshots `app2-screen{1..5}.png`, copied directly from the originals (1125×2436, already smaller than StayCount's 1242×2688, no downscaling needed). Narrative order: Capture screen → Map view → Settings (Vault picker) → Settings (Siri hands-free) → About Recall. The four `WelcomeView` intro screens (`IMG_5790`–`5793`) were intentionally skipped — marketing-style intro art, not real UI.
