@@ -42,7 +42,8 @@ A card optionally includes a **rich feature list** between the description and t
 
 Current cards:
 
-- **A1 — WatchCircle (iPhone)** — pre-launch, App Store CTA reads "Coming to the App Store"
+- **A1 — WatchCircle (iPhone)** — **LIVE on the App Store** as of 2026-06-17
+  - App Store: https://apps.apple.com/sg/app/watchcircle/id6774480099 (Singapore storefront URL; Apple's smart banner resolves to the user's local storefront)
   - Source app: `/Users/sanjay/Xcode/WatchCircle` (has its own `CLAUDE.md` — read first when touching A1 copy). SwiftUI + Core Data + `NSPersistentCloudKitContainer`; bundle ID `net.3sstudio.WatchCircle`. The `AboutView` struct at `WatchCircle/AboutView.swift` is the canonical source of the feature list — copy edits should track that file.
   - Icon: `images/app1-icon.png` (from `/Users/sanjay/Xcode/WatchCircle/AppIcon/icon-1024.png`)
   - 5 portrait (9:19.5) iPhone screenshots `app1-screen{1..5}.png`, copied directly from the originals at `/Users/sanjay/Sites/Tamp-WatchCircle-Images/IMG_603{1,3,4,5,6}.PNG` (1125×2436, same as Recall — no downscaling). Narrative order: Watched tab → Watchlist tab → Friends tab → Settings → About.
@@ -90,7 +91,7 @@ Current cards:
   - Icon: `images/app6-icon.png` (from `Assets.xcassets/AppIcon.appiconset/`)
   - 3 portrait (3:4) iPad screenshots `app6-screen{1..3}.jpg` — copy + screenshots were originally pulled from the prior apex `3sstudio.net` template (Xcode project lacked them); when better Xcode-sourced ones exist, swap them in
 
-A1, A4, A5, and A6 are still pre-launch — their App Store CTAs read **"Coming to the App Store"** (or "Coming to the Mac App Store" for A5) with `href="#"`. **When an app ships**, swap the CTA to the live App Store URL and change the button copy to **"Download on the App Store"** (or "Download on the Mac App Store" if it's a Mac-only build, matching the existing A5 placeholder copy). Add `target="_blank" rel="noopener"` so it opens in a new tab. A2 (Recall) and A3 (StayCount Resident) are the live reference implementations today.
+A4, A5, and A6 are still pre-launch — their App Store CTAs read **"Coming to the App Store"** (or "Coming to the Mac App Store" for A5) with `href="#"`. **When an app ships**, swap the CTA to the live App Store URL and change the button copy to **"Download on the App Store"** (or "Download on the Mac App Store" if it's a Mac-only build, matching the existing A5 placeholder copy). Add `target="_blank" rel="noopener"` so it opens in a new tab. A1 (WatchCircle), A2 (Recall), and A3 (StayCount Resident) are the live reference implementations today.
 
 Each app card's actions row also takes an optional **"App Privacy Policy"** link rendered with `class="btn btn-link"` (subtle underlined text, no pill). Point it at the public Gist for that app — never at the private Xcode source repo. WatchCircle (A1) uses gist `d6656c7869adaf2d2d2f1c1072059f49`; Recall (A2) uses gist `8bce22fd9e0ae9e4a430958221d818da`; StayCount Resident (A3) uses gist `aac973f3127997b60223fb9714659379`; World Explorer (A5) uses gist `ad7f425edacd13e8068c0dfacab7f382`. Kaaldarshi (A4) / CalNotes (A6) / RSS Reader / PerFinMac don't have policies yet — when they do, look them up in the user's public Gists (`https://api.github.com/users/shuklz/gists`) before wiring the link.
 
