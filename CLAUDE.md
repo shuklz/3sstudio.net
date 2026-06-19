@@ -74,7 +74,7 @@ Current cards:
 - **A4 — Kaaldarshi (macOS + iPad)**
   - Source app: `/Users/sanjay/Xcode/Kaaldarshi` — note the Xcode target folder is still called `VedicClock` (legacy name); product was renamed to **Kaaldarshi**, never surface "VedicClock" in marketing copy. The `WelcomeView` struct in `VedicClock/App/VedicClockApp.swift` is the canonical source of the feature list — copy edits should track that file.
   - **Badges are macOS + iPad only**, even though `TARGETED_DEVICE_FAMILY = "1,2"` in `project.pbxproj` makes the build technically universal. The iPhone form factor isn't ready for marketing yet — don't re-add an iPhone badge until the user explicitly says so.
-  - Icon: `images/app4-icon.png` (from `Assets.xcassets/AppIcon.appiconset/AppIcon 1.png`)
+  - Icon: `images/app4-icon.png` (from `/Users/sanjay/Xcode/VedicClock/VedicClock/Assets.xcassets/AppIcon.appiconset/AppIcon1024.png`; refreshed 2026-06-19 to the gold zodiac-wheel design)
   - 9 landscape macOS screenshots `app4-screen{1..9}.png`, downscaled from the originals in `Screenshots-Kaaldarshi app/` (which is also tracked in the repo) to 2000px wide via `sips -Z 2000`. Narrative order: welcome → main dashboard → D1 charts → profile card → Mahadasha detail → Manglik → Sade Sati → Full Kundli PDF cover → Birth Chart Summary. Aspect ratio ~5:4, so the gallery uses inline `style="--gallery-aspect: 5 / 4;"` on `.app-gallery`. Thumbs use `loading="lazy"` to defer fetches.
   - Pitch: classical Vedic Jyotish — Panchang, Vimshottari Dasha, divisional charts, yogas/doshas, transits, full multi-page Kundli PDF — all on-device using the Swiss Ephemeris
   - Bundles SwissEphemeris as a sibling folder at `/Users/sanjay/Xcode/Kaaldarshi/SwissEphemeris`
